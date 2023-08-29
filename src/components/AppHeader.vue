@@ -11,10 +11,19 @@ export default {
     },
     data() {
         return {
-            store
-        }
+            isSearchVisible: false,
+        };
     },
     methods: {
+        toggleSearch() {
+            this.isSearchVisible = !this.isSearchVisible;
+
+            if (this.isSearchVisible) {
+                this.$nextTick(() => {
+                    this.$refs.searchInput.focus();
+                });
+            }
+        },
     },
     mounted() {
     }
@@ -22,83 +31,83 @@ export default {
 </script>
 
 <template>
-    <!-- <div class="container-fluid bg-warning">
-        <div class="container text-center">
-            <div class="row d-flex align-items-center">
-                <div class="col">
-                    <img class="logo" src="../../public/logo.png" alt="">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="containerCustom container-sm d-flex">
+            <!-- LOGO SITO -->
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="public/d.png" alt="">
+            </a>
+            <!-- Bottone OFCanvas -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="col d-flex justify-content-start">
-                    home
-                </div>
-                <div class="col d-flex justify-content-end">
-                    <div class="mx-2">
-                        <a href="">
-                            <img class="menuIcon" src="src/assets/icon/menu.png" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <div class="dropdown">
-                                <img class="icon" src="src/assets/icon/search.png" alt="">
-                            <ul class="dropdown-menu w-1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <!-- Link and OfCanvas Menu -->
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Developer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Chi siamo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contatti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <div class="d-flex justify-content-end">
+                <button class="search-toggle btn bg-transparent" @click="toggleSearch">
+                    <img class="icon" src="src/assets/icon/search.png" alt="">
+                </button>
+            </div>
         </div>
-    </div> -->
-    
-    <AppSearch />
+    </nav>
+    <div class="serchBox w-100 h-50 bg-success" :class="['search-input', { show: isSearchVisible }]">
+        <AppSearch />
+    </div>
 </template>
 
 <style lang="scss" scoped>
-.header {
-    background-color: green;
+//Container
+.containerCustom {
+    width: 1500px;
+    margin: 0 auto;
 }
 
-.logo {
-    width: 10rem;
+.search-input {
+    display: none;
+    /* Imposta l'input di ricerca inizialmente nascosto */
 }
 
-.menuIcon {
-    width: 1rem;
+.search-input.show {
+    display: block;
+    /* Mostra l'input di ricerca quando la classe show è presente */
 }
 
 .icon {
-    width: 1rem;
+    width: 1.5rem;
 }
 
-.serchbar{
-    height: 2rem;
+.logo {
+    width: 3rem;
 }
 
-.container-input {
-    position: relative;
-}
-
-.input {
-    width: 150px;
-    padding: 10px 0px 10px 40px;
-    border-radius: 9999px;
-    border: solid 1px #333;
-    transition: all .2s ease-in-out;
-    outline: none;
-    opacity: 0.8;
-}
-
-.container-input svg {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translate(0, -50%);
-}
-
-.input:focus {
-    opacity: 1;
-    width: 250px;
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
 }
 </style>

@@ -1,135 +1,149 @@
 <script>
 import LittleSerch from './LittleSerch.vue';
+import LittleCheck from './LittleCheck.vue';
+import LittleButton from './LittleButton.vue'
 
 export default {
     name: 'AppSearch',
     components: {
         LittleSerch,
+        LittleCheck,
+        LittleButton,
+        
     },
     data() {
         return {
-            isSearchVisible: false,
+
         };
     },
     methods: {
-        toggleSearch() {
-            this.isSearchVisible = !this.isSearchVisible;
 
-            if (this.isSearchVisible) {
-                this.$nextTick(() => {
-                    this.$refs.searchInput.focus();
-                });
-            }
-        },
     },
 };
 
 </script>
-
+    
 <template>
-    <div class="header">
-        <!-- ... Altri elementi nell'header ... -->
-        <div class="container-fluid bg-warning">
-            <div class="container text-center">
-                <div class="row d-flex align-items-center">
-                    <div class="col">
-                        <img class="logo" src="../../public/logo.png" alt="">
-                    </div>
-                    <div class="col d-flex justify-content-start">
-                        home
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <div class="mx-2">
-                            <a href="">
-                                <img class="menuIcon" src="src/assets/icon/menu.png" alt="">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button class="search-toggle bg-transparent" @click="toggleSearch">
-                                <img class="icon" src="src/assets/icon/search.png" alt="">
-                            </button>
-                        </div>
-                    </div>
+    <div>
+        <form class="w-100">
+            <div class="row row-cols-1 g-5">
+                <div class="col">
+                    <LittleSerch />
+                </div>
+                <div class="col d-flex">
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
                 </div>
             </div>
-        </div>
-        <!-- Bottone per attivare/disattivare la ricerca -->
-        <!-- <div class="d-flex justify-content-end">
-            <button class="search-toggle bg-transparent" @click="toggleSearch">
-                <img class="icon" src="src/assets/icon/search.png" alt="">
-            </button>
-        </div> -->
-
-        <!-- Input per la ricerca -->
-        <div class="w-100 h-50" :class="['search-input', { show: isSearchVisible }]">
-            <!-- <input ref="searchInput" type="search"> -->
-            <LittleSerch />
-        </div>
+            <div class="col d-flex justify-content-end mt-5">
+                <LittleButton text='Serch' />
+            </div>
+        </form>
+        
+        
     </div>
 </template>
 
 <style lang="scss" scoped>
-.search-input {
-    display: none;
-    /* Imposta l'input di ricerca inizialmente nascosto */
-}
+$white: rgba(255, 255, 255, 0.3);
 
-.search-input.show {
-    display: block;
-    /* Mostra l'input di ricerca quando la classe show è presente */
-}
 
-.icon {
-    width: 20px;
-}
-
-.search-toggle {
-    border: none;
-    padding: 0.5rem;
-}
-
-.header {
-    background-color: green;
-}
-
-.logo {
-    width: 10rem;
-}
-
-.menuIcon {
-    width: 1rem;
-}
-
-.icon {
-    width: 1rem;
-}
-
-.serchbar {
-    height: 2rem;
-}
-
-.container-input {
+form {
+    background: $white;
+    padding: 3em;
+    border-left: 1px solid $white;
+    border-top: 1px solid $white;
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    text-align: center;
     position: relative;
+    transition: all 0.2s ease-in-out;
+
+    p {
+        font-weight: 500;
+        color: #fff;
+        opacity: 0.7;
+        font-size: 1.4rem;
+        margin-top: 0;
+        margin-bottom: 60px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    a {
+        text-decoration: none;
+        color: #ddd;
+        font-size: 12px;
+
+        &:hover {
+            text-shadow: 2px 2px 6px #00000040;
+        }
+
+        &:active {
+            text-shadow: none;
+        }
+    }
+
+    input {
+        background: transparent;
+        width: 200px;
+        padding: 1em;
+        margin-bottom: 2em;
+        border: none;
+        border-left: 1px solid $white;
+        border-top: 1px solid $white;
+        border-radius: 5px;
+        backdrop-filter: blur(5px);
+        box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        &[type="email"],
+        &[type="password"] {
+
+            &:focus {
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &[type="button"] {
+            margin-top: 10px;
+            width: 150px;
+            font-size: 1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
 }
 
-.input {
-    width: 150px;
-    padding: 10px 0px 10px 40px;
-    border-radius: 9999px;
-    border: solid 1px #333;
-    transition: all .2s ease-in-out;
+::placeholder {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+a,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
     outline: none;
-    opacity: 0.8;
 }
-
-.container-input svg {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translate(0, -50%);
-}
-
-.input:focus {
-    opacity: 1;
-    width: 250px;
-}</style>
+</style>
