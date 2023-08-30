@@ -12,7 +12,7 @@ const router = createRouter({
             component: AppHomePage
         },
         {
-            path: '/dev-list',
+            path: '/devlist',
             name: 'devlist',
             component: AppDevList
         },
