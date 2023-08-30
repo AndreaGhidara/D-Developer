@@ -32,7 +32,7 @@ export default {
     
     <!-- devs -->
 
-    <TopDevs/>
+    <router-view></router-view>
 
     <!-- introduzione -->
     <div class="container-fluid bg-primary py-5">

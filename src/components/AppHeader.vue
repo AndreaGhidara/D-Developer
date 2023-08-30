@@ -12,6 +12,16 @@ export default {
     data() {
         return {
             isSearchVisible: false,
+            navLink:[
+                {
+                    label: "Search",
+                    name:"devlist"
+                },
+                {
+                    label:"Home",
+                    name:"home"
+                }
+            ]
         };
     },
     methods: {
@@ -51,7 +61,10 @@ export default {
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        
+                            <router-link :to="{name: navLink[1].name}" class="nav-link active" aria-current="page">
+                                {{ navLink[1].label }}
+                            </router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Developer</a>
@@ -69,9 +82,11 @@ export default {
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="search-toggle btn bg-transparent" @click="toggleSearch">
-                    <img class="icon" src="src/assets/icon/search.png" alt="">
-                </button>
+                    
+                <router-link class="search-toggle btn bg-transparent" @click="toggleSearch" :to="{name: navLink[0].name}">
+                <img class="icon" src="src/assets/icon/search.png" alt="">
+                </router-link>
+                
             </div>
         </div>
     </nav>
