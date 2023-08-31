@@ -36,8 +36,6 @@ export default {
 
 </template>
 
-<style lang="scss" scoped>
-  h1{
-    background-color: red;
-  }
+<style lang="scss" >
+ @use'./style/variable.scss' as*;
 </style>

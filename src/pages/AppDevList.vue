@@ -23,7 +23,7 @@ export default {
 
 <template >
    
-    <div class="container-fluid bg-dark">
+    <section class="container-fluid bg-dark">
         <div class="row">
             <div class="col-10 mx-auto text-center" >
 
@@ -77,7 +77,7 @@ export default {
 
         </div>
 
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
