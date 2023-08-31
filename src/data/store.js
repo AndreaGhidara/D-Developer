@@ -7,6 +7,7 @@ export const store = reactive({
     DevApi:"apiDeveloper",
     DevApiPages:"apiDeveloperPages",
     ListDev:[],
+    ListDevPage:[],
     Loading: false,
     LoadingError:false,
     devsCurrentPage: 0,
@@ -50,10 +51,10 @@ export const store = reactive({
             axios.get(this.BaseApiUrl + this.DevApiPages, config)
             .then(r => {
                 
-                this.ListDev = r.data.results.data; // paginate
+                this.ListDevPage = r.data.results.data; // paginate
                 this.devsCurrentPage = r.data.results.current_page;
                 this.devsTotalPages = r.data.results.last_page;
-                console.log(this.ListDev);
+                console.log(this.ListDevPage);
                 this.Loading = false
 
             })
