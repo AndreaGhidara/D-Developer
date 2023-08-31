@@ -44,7 +44,7 @@ export default {
         </div>
         
         <!-- users -->
-            <div v-for="item in store.ListDev" class="row justify-content-around flex-wrap my-5 ">
+            <div v-for="item in store.ListDev" class="row justify-content-around flex-wrap">
                 <template v-if="item.name.toLowerCase().includes(store.FilterText)">
                     <div class="card mb-3 h-300 rounded-5 border-1 p-0" style="max-width: 1300px;">
                         <div class="row g-0">
