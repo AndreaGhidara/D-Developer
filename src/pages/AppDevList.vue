@@ -59,8 +59,10 @@ export default {
                                 
                                 <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
                             
-                                <p class="text-light position">{{ item.name }}<br><span>Linguaggio</span></p>
-
+                                <p class="text-light position justify-content-center">{{ item.name }}<br>
+                                    <span v-for="language in item.programming_languages">{{ language.language }}<br></span><br>
+                                </p>
+                                
                             </div>
                             <div class="content">
                                 
@@ -120,8 +122,9 @@ img{
     z-index: 99;
 }
 p.position{
-    text-align: center;
-    left: 30%;
+    word-wrap: break-word;
+    max-width: 150px;
+    left: 10%;
 }
 
 .my_card::after {
