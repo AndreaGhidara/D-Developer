@@ -27,7 +27,7 @@ export default {
             <div class="row row-cols-1 row-cols-md-4 g4">
                 
                 <!-- cards dei top devs -->
-                <div v-for="item in store.ListDev" class="col">
+                <div v-for="item in store.ListDevPage" class="col">
                     <div class="bg-transparent border-0 card h-100 text-center" style="width: 18rem;">
                         
                         <!-- immagine profilo -->
