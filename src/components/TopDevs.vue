@@ -24,37 +24,38 @@ export default {
 
 <div class="container-fluid bg-primary pt-5">
         <div class="container">
+            <div class="row">
+                <div class="col-12 text-center pb-5 text-white">
+                    <h1>I nostri professionisti in evidenza</h1>
+                </div>
+            </div>
             <div class="row row-cols-1 row-cols-md-4 g4">
-                
                 <!-- cards dei top devs -->
                 <div v-for="item in store.ListDevPage" class="col">
-                    <div class="bg-transparent border-0 card h-100 text-center" style="width: 18rem;">
-                        
+                    <div class="bg-transparent border-0 text-center">
                         <!-- immagine profilo -->
-                        <img v-if="item.img_path" src="{{ item.img_path }}" class="card-img-top" alt="...">
-                        <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border border-5" alt="{{item.name}}">
-                        
-                        <!-- body -->
-                        <div class="card-body">
-                            <h5 class="card-title">{{item.name}} {{ item.surname }}</h5>
-                            <!-- <router-link :to="{name:'single-dev', params: {id: item.id}}" class="text-black fs-5 fw-semibold text-decoration-none">{{ item.name }} {{ item.surname }}</router-link> -->
-                            <!-- <a href="/devlist" class="text-black fs-5 fw-semibold text-decoration-none">{{item.name}} {{ item.surname }}</a> -->
-                            <p class="card-text">{{item.bio}}</p>
+                        <div class="flip">
+                            <div class="front">
+                                <img v-if="item.img_path" src="{{ item.img_path }}" class="card-img-top" alt="...">
+                                <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border border-5" alt="{{item.name}}">
+                            </div>
+                            <div class="back rounded-circle border border-5 text-center py-5 px-3">
+                                <h5>{{item.name}} {{ item.surname }}</h5>
+                                <p>{{item.bio}}</p>
+                            </div>
                         </div>
-                        <div class="card-footer bg-transparent border-top-0">
-                            <!-- <a href="/devlist" class="btn btn-success">visualizza profilo</a> -->
-                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn btn-success">Mostra altro</router-link>
+                        <div class="bg-transparent py-3">
+                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn orange">Visualizza Profilo</router-link>
                         </div>
                     </div>
-                </div>
-            
+                </div>         
             </div>
             <div class="row">
                 <div class="col d-flex justify-content-center align-item-center pt-5">
 
                     <!-- mostra tutti i devs -->
 
-                    <a href="/devlist" class="btn btn-danger"> mostra tutti </a>
+                    <a href="/devlist" class="btn btn-danger">Mostra Tutti</a>
                 </div>
             </div>
         </div>
@@ -64,6 +65,53 @@ export default {
 
 <style scoped>
 
+.orange {
+    background-color: orange;
+}
+.flip {
+    position: relative;
+    >.front,
+    >.back {
+        display: block;
+        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        transition-duration: .5s;
+        transition-property: transform, opacity;
+    }
+    >.front {
+        transform: rotateY(0deg);
+    }
+    >.back {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(-180deg);
+    }
+    &:hover {
+        >.front {
+            transform: rotateY(180deg);
+        }
+        >.back {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+    }
+}
 
+.flip {
+    position: relative;
+    display: inline-block;
+    >.front,
+    >.back {
+      display: block;
+      color: white;
+      background-size: cover!important;
+      background-position: center!important;
+      background: #ff660090;
+      border-radius: 50%;
+    }
+}
 
 </style>
