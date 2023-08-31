@@ -13,6 +13,7 @@ export const store = reactive({
     devsCurrentPage: 0,
     devsTotalPages: 0,
     FilterText:"",
+    Dev: [],
 
     /**Funzione di richiamo */
     getDevs(){
@@ -75,8 +76,9 @@ export const store = reactive({
 
         axios.get(this.BaseApiUrl + this.DevApi + '/' + id)
         .then(r => {
-            console.log(r.data);
+           
             this.Dev = r.data.results;
+            console.log(this.Dev);
             this.loading = false;
 
         })
