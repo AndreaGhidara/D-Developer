@@ -10,10 +10,19 @@ export default {
     data() {
         return {
             store,
+            valutations: []
         }
     },
     methods: {
-    
+        calculateAverage(valutations) {
+            if (valutations.length === 0) {
+                return 0; // Evita divisione per zero
+            }
+
+            const sum = valutations.reduce((total, valutation) => total + valutation.valutation, 0);
+            const average = sum / valutations.length;
+            return Math.ceil(average); // Arrotonda la media per eccesso
+        }
     },
     mounted() {
         store.getDevs();
@@ -54,18 +63,24 @@ export default {
                         <div class="my_card  m-3">
                             <b></b>
                             <div>
-                               
+
+                                <!-- immagine profilo -->
                                 <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-                                
                                 <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-                            
+
+                                <!-- testo -->
                                 <p class="text-light position justify-content-center">{{ item.name }}<br>
+                                    <!-- linguaggi -->
                                     <span v-for="language in item.programming_languages">{{ language.language }}<br></span><br>
+                                    <!-- tutte le valutazioni (nascoste)-->
+                                    <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
+                                    <!-- media valutazioni -->
+                                    <p> {{ calculateAverage(item.valutations) }}</p>
                                 </p>
-                                
+
                             </div>
                             <div class="content">
-                                
+
                                 <router-link :to="{name:'single-dev', params: {id: item.id}}"> link</router-link>
                                  
                             </div>
