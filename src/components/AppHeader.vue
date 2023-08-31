@@ -45,7 +45,7 @@ export default {
         <div class="containerCustom container-sm d-flex">
             <!-- LOGO SITO -->
             <a class="navbar-brand" href="#">
-                <img class="logo" src="public/d.png" alt="">
+                <img class="logo" src="/d.png" alt="">
             </a>
             <!-- Bottone OFCanvas -->
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas"
