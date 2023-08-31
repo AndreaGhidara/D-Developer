@@ -21,13 +21,13 @@ export default {
 }
 </script>
 
-<template>
+<template >
    
-    <div class="container">
+    <div class="container-fluid bg-dark">
         <div class="row">
-            <div class="col-12" >
+            <div class="col-10 mx-auto text-center" >
 
-                <h1>Elenco Dev</h1>
+                <h1 class="text-light">Elenco Dev</h1>
                 
                 <div class="col-10 mx-auto">
                     
@@ -43,60 +43,137 @@ export default {
 
         </div>
         
-        <!-- users -->
-            <div v-for="item in store.ListDev" class="row justify-content-around flex-wrap">
-                <template v-if="item.name.toLowerCase().includes(store.FilterText)">
-                    <div class="card mb-3 h-300 rounded-5 border-1 p-0" style="max-width: 1300px;">
-                        <div class="row g-0">
+        <div class="row ">
+            <div class="col-10 d-flex justify-content-around flex-wrap mx-auto">
 
-                            <!-- immagine -->
-                            <div class="col-md-4 d-flex align-items-center justify-content-center ">
+                <template v-for="item in store.ListDev" >
 
-                                <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border border-5" alt="{{ item.name }},{{ item.surname }}">
+                    <template v-if="item.name.toLowerCase().includes(store.FilterText)">
+
+                        <!-- card singola user -->
+                        <div class="my_card  m-3">
+                            <b></b>
+                            <div>
+                               
+                                <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
                                 
-                                <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border border-5" alt="{{ item.name }},{{ item.surname }}">
+                                <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                            
+                                <p class="text-light position">{{ item.name }}<br><span>Linguaggio</span></p>
 
                             </div>
-
-                            <!-- dati -->
-                            <div class="col-md-4">
-                                <div class="card-body">
-                                    <h2 class="card-title">{{ item.name }} {{ item.surname }}</h2>
-                                    <p class="card-text"><small class="text-body-secondary">{{item.date_of_birth}}</small></p>
-                                    <p class="card-text"><small class="text-body-secondary"><span class="fw-semibold">Email:</span> {{item.email}}</small></p>
-                                    <p class="card-text"><small class="text-body-secondary"><span class="fw-semibold">Numero di telefono:</span> {{item.phone_number}}</small></p>
-                                    <p class="card-text"><small class="text-body-secondary"><span class="fw-semibold">Partita IVA:</span> {{item.vat_number}}</small></p>
-
-                                    <p class="card-text"><span class="fw-semibold">Bio:</span> {{item.bio}}</p>
-                                    <p class="card-text"><span class="fw-semibold">Soft skill:</span> {{item.soft_skill}}</p>
-                                    <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
-                                </div>
-                            </div>
-
-                            <!-- links -->
-                            <div class="col-md-4 d-flex flex">
-                                <div class="card-body">
-                                    <h2 class="card-title">Link Utili</h2>
-                                    <p><span class="fw-semibold">GitHub:</span> <a class="card-text"> {{item.github_link}}</a></p>
-                                    <p><span class="fw-semibold">Linkedin:</span> <a class="card-text"> {{item.linkedin_link}}</a></p>
-                                </div>
+                            <div class="content">
+                                
+                               <a href="#" class="title" >link</a>
+                                 
                             </div>
                         </div>
-                    </div>
+
+                    </template>
+
                 </template>
+
             </div>
 
-            <!-- <div class="row">
-                <div class="col d-flex justify-content-center align-items-center">
-                    <a @click="store.getDevsPage(store.devsCurrentPage - 1)" class="text-light btn btn-primary me-2">Previous page</a>
-                    <a @click="store.getDevsPage(pageNumber)" v-for="pageNumber in store.devsTotalPages"
-                        class="text-light  btn btn-primary me-2">{{ pageNumber }}</a>
-                    <a @click="store.getDevsPage(store.devsCurrentPage + 1)" class="text-light btn btn-primary">Next page</a>
-                </div>
-            </div> -->
+        </div>
+
     </div>
 </template>
 
 <style lang="scss" scoped>
+@use'../style/variable.scss' as*;
+.my_card {
+  
+  position: relative;
+  width: 190px;
+  height: 254px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+}
+.my_border{
+    
+    border-color: $my_primary !important;
+}
+
+
+.my_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, $my_8,$my_primary);
+  border-radius: 10%;
+  
+}
+img{
+    
+    width: 50%;
+    top:10%;
+    left: 25%;
+}
+.position{
+    position:absolute;
+    z-index: 99;
+}
+p.position{
+    text-align: center;
+    left: 30%;
+}
+
+.my_card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,$my_primary,$my_8);
+  filter: blur(5px);
+  border-radius: 10%;
+}
+
+.my_card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  border-radius: 10%;
+}
+
+.my_card .content {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.my_card:hover .content {
+  transform: scale(1);
+  bottom: 25px;
+}
+
+.content .title {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.content .title span {
+  font-weight: 300;
+  font-size: 0.70em;
+}
 
 </style>
