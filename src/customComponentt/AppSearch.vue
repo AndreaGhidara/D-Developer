@@ -39,7 +39,7 @@ export default {
                 </div>
             </div>
             <div class="col d-flex justify-content-end mt-5">
-                <LittleButton text='Serch' />
+                <LittleButton text='Search' />
             </div>
         </form>
         
