@@ -67,7 +67,26 @@ export const store = reactive({
 
         }
 
-    }
-    
+    },
+    // Funzione di richiamo del singolo user
+    getDev(id) {
+
+        this.loading = true;
+
+        axios.get(this.BaseApiUrl + this.DevApi + '/' + id)
+        .then(r => {
+            console.log(r.data);
+            this.Dev = r.data.results;
+            this.loading = false;
+
+        })
+        .catch(err => {
+
+            this.loading = false;
+            this.LoadingError = "Errore nel caricamento " + err.message;
+
+        });
+
+    },
     
 });

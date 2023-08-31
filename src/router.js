@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import AppHomePage from './pages/AppHomePage.vue';
 import AppDevList from './pages/AppDevList.vue';
+import AppSingleDev from './pages/AppSingleDev.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,11 @@ const router = createRouter({
             path: '/devlist',
             name: 'devlist',
             component: AppDevList
+        },
+        {
+            path: '/devlist/:id',
+            name: 'single-dev',
+            component: AppSingleDev
         },
     ]
 });

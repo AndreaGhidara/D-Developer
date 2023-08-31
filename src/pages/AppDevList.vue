@@ -61,7 +61,9 @@ export default {
                             <!-- dati -->
                             <div class="col-md-4">
                                 <div class="card-body">
-                                    <h2 class="card-title">{{ item.name }} {{ item.surname }}</h2>
+                                    <h2 class="card-title">
+                                        <router-link :to="{name:'single-dev', params: {id: item.id}}">{{ item.name }} {{ item.surname }}</router-link>
+                                    </h2>
                                     <p class="card-text"><small class="text-body-secondary">{{item.date_of_birth}}</small></p>
                                     <p class="card-text"><small class="text-body-secondary"><span class="fw-semibold">Email:</span> {{item.email}}</small></p>
                                     <p class="card-text"><small class="text-body-secondary"><span class="fw-semibold">Numero di telefono:</span> {{item.phone_number}}</small></p>

@@ -36,12 +36,14 @@ export default {
                         
                         <!-- body -->
                         <div class="card-body">
-                            <!-- <h5 class="card-title">{{item.name}} {{ item.surname }}</h5> -->
-                            <a href="/devlist" class="text-black fs-5 fw-semibold text-decoration-none">{{item.name}} {{ item.surname }}</a>
+                            <h5 class="card-title">{{item.name}} {{ item.surname }}</h5>
+                            <!-- <router-link :to="{name:'single-dev', params: {id: item.id}}" class="text-black fs-5 fw-semibold text-decoration-none">{{ item.name }} {{ item.surname }}</router-link> -->
+                            <!-- <a href="/devlist" class="text-black fs-5 fw-semibold text-decoration-none">{{item.name}} {{ item.surname }}</a> -->
                             <p class="card-text">{{item.bio}}</p>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">
-                            <a href="/devlist" class="btn btn-success">visualizza profilo</a>
+                            <!-- <a href="/devlist" class="btn btn-success">visualizza profilo</a> -->
+                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn btn-success">Mostra altro</router-link>
                         </div>
                     </div>
                 </div>
