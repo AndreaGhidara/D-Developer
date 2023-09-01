@@ -1,6 +1,4 @@
 <script>
-import { store } from '../data/store'
-
 import LittleSerch from './LittleSerch.vue';
 import LittleCheck from './LittleCheck.vue';
 import LittleButton from './LittleButton.vue'
@@ -15,11 +13,11 @@ export default {
     },
     data() {
         return {
-            store,
+
         };
     },
-    mounted() {
-        store.getLanguages();
+    methods: {
+
     },
 };
 
@@ -32,8 +30,12 @@ export default {
                 <div class="col">
                     <LittleSerch />
                 </div>
-                <div class="col d-flex flex-wrap justify-content-end">
-                    <LittleCheck/>
+                <div class="col d-flex">
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
+                    <LittleCheck label='Vue' />
                 </div>
             </div>
             <div class="col d-flex justify-content-end mt-5">
