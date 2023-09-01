@@ -27,7 +27,6 @@ export default {
 
     <template v-for="item in store.ListLanguages">
 
-        <!-- checkbox -->
         <div class="checkbox-wrapper  ">
                 <input :id=item.id :value="item.language" class="check" type="checkbox" v-model="store.selectedLanguages">
                 <label class="label" :for=item.id>
