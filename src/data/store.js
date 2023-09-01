@@ -14,6 +14,8 @@ export const store = reactive({
     devsTotalPages: 0,
     FilterText:"",
     Dev: [],
+    Stars: 5,
+    Tempo: false,
 
     /**Funzione di richiamo */
     getDevs(){
@@ -90,5 +92,32 @@ export const store = reactive({
         });
 
     },
-    
+
+    /*FUNZIONE PER FARE LA MEDIA*/
+    average(array){
+        this.Tempo = true;
+        let result = 0;
+        
+        let lunghezza = array.length;
+
+        
+        array.forEach(element => {
+            
+            result = this.somma(result, element.valutation);
+
+        });
+        
+        
+        let  media=  result / lunghezza;
+        
+        this.Tempo = false;
+
+        return Math.round(media);
+
+    },
+
+    // FUNZIONE SOMMA
+    somma(num1, num2){
+        return  num1 + num2;
+    }
 });
