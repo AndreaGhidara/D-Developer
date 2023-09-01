@@ -57,7 +57,8 @@ export default {
 
                 <template v-for="item in store.ListDev" >
 
-                    <template v-if="item.name.toLowerCase().includes(store.FilterText)">
+                        <!-- mostra risultati della ricerca per nome o per linguaggio -->
+                        <template v-if="item.name.toLowerCase().includes(store.FilterText) && store.selectedLanguages.length === 0 || store.selectedLanguages.includes(item.programming_languages[0].language)">
 
                         <!-- card singola user -->
                         <div class="my_card  m-3">
@@ -66,9 +67,9 @@ export default {
                             <b></b>
                             <div>
 
-                                <!-- immagine profilo -->
-                                <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-                                <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                                        <!-- immagine profilo -->
+                                        <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                                        <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
 
                                 <!-- testo -->
                                 <div class="text-light position col-12">
@@ -84,8 +85,9 @@ export default {
                                     <p> {{ calculateAverage(item.valutations) }}</p>
                                 </div>
 
-                            </div>
-                            <div class="content">
+                                    </div>
+
+                                    <div class="content">
 
                                 <router-link :to="{name:'single-dev', params: {id: item.id}}">INFO</router-link>
                                  

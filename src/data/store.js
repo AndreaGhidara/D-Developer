@@ -6,16 +6,21 @@ export const store = reactive({
     BaseApiUrl:"http://127.0.0.1:8000/api/",
     DevApi:"apiDeveloper",
     DevApiPages:"apiDeveloperPages",
+    Languages: "languages",
     ListDev:[],
     ListDevPage:[],
+    ListLanguages: [],
+    Dev: [],
     Loading: false,
     LoadingError:false,
     devsCurrentPage: 0,
     devsTotalPages: 0,
-    FilterText:"",
-    Dev: [],
     Stars: 5,
     Tempo: false,
+
+    // ricerca per nome o per linguaggio
+    FilterText:"",
+    selectedLanguages: [],
 
     /**Funzione di richiamo */
     getDevs(){
@@ -36,6 +41,7 @@ export const store = reactive({
             }
         )
     },
+    
     // Funzione di richiamo di 4 elementi per pagina
     getDevsPage(pageNumber) {
 
@@ -71,6 +77,7 @@ export const store = reactive({
         }
 
     },
+
     // Funzione di richiamo del singolo user
     getDev(id) {
 
@@ -119,5 +126,25 @@ export const store = reactive({
     // FUNZIONE SOMMA
     somma(num1, num2){
         return  num1 + num2;
-    }
+    },
+
+    /**Funzione di richiamo linguaggi*/
+    getLanguages(){
+        this.Loading =true;
+
+        axios.get(this.BaseApiUrl + this.Languages )
+            .then((r) => {
+            
+                this.ListLanguages = r.data.results;
+                console.log(this.ListLanguages);
+                this.Loading = false;
+
+            })
+            .catch(err => {
+
+                this.Loading = false;
+                this.LoadingError = "Errore nel caricamento" + err.message;
+            }
+        )
+    },
 });
