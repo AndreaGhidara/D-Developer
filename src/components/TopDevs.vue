@@ -45,7 +45,7 @@ export default {
                             </div>
                         </div>
                         <div class="bg-transparent py-3">
-                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn orange">Visualizza Profilo</router-link>
+                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn orange text-white">Visualizza Profilo</router-link>
                         </div>
                     </div>
                 </div>         
@@ -55,7 +55,7 @@ export default {
 
                     <!-- mostra tutti i devs -->
 
-                    <a href="/devlist" class="btn btn-danger">Mostra Tutti</a>
+                    <a href="/devlist" class="btn orange text-white">Mostra Tutti</a>
                 </div>
             </div>
         </div>
@@ -63,10 +63,10 @@ export default {
 
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@use'../style/variable.scss' as*;
 .orange {
-    background-color: orange;
+    background-color: $my_primary;
 }
 .flip {
     position: relative;
@@ -109,7 +109,7 @@ export default {
       color: white;
       background-size: cover!important;
       background-position: center!important;
-      background: #ff660090;
+      background: $my_primary;
       border-radius: 50%;
     }
 }

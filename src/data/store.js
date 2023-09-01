@@ -15,6 +15,8 @@ export const store = reactive({
     LoadingError:false,
     devsCurrentPage: 0,
     devsTotalPages: 0,
+    Stars: 5,
+    Tempo: false,
 
     // ricerca per nome o per linguaggio
     FilterText:"",
@@ -98,6 +100,34 @@ export const store = reactive({
 
     },
 
+    /*FUNZIONE PER FARE LA MEDIA*/
+    average(array){
+        this.Tempo = true;
+        let result = 0;
+        
+        let lunghezza = array.length;
+
+        
+        array.forEach(element => {
+            
+            result = this.somma(result, element.valutation);
+
+        });
+        
+        
+        let  media=  result / lunghezza;
+        
+        this.Tempo = false;
+
+        return Math.round(media);
+
+    },
+
+    // FUNZIONE SOMMA
+    somma(num1, num2){
+        return  num1 + num2;
+    },
+
     /**Funzione di richiamo linguaggi*/
     getLanguages(){
         this.Loading =true;
@@ -117,5 +147,4 @@ export const store = reactive({
             }
         )
     },
-    
 });
