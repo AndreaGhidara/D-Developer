@@ -58,6 +58,7 @@ export default {
                 <template v-for="item in store.ListDev" >
 
                         <!-- mostra risultati della ricerca per nome o per linguaggio -->
+                        
                         <template v-if="item.name.toLowerCase().includes(store.FilterText) && store.selectedLanguages.length === 0 || store.selectedLanguages.includes(item.programming_languages[0].language)">
 
                                 <!-- card singola user -->
