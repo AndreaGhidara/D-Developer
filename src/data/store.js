@@ -17,7 +17,7 @@ export const store = reactive({
     Stars: 5,
     Tempo: false,
 
-    /**Funzione di richiamo */
+    // Funzione di richiamo 
     getDevs(){
         this.Loading =true;
 
