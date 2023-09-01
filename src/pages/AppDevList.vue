@@ -61,42 +61,40 @@ export default {
                         
                         <template v-if="item.name.toLowerCase().includes(store.FilterText) && store.selectedLanguages.length === 0 || store.selectedLanguages.includes(item.programming_languages[0].language)">
 
-                                <!-- card singola user -->
-                                <div class="my_card  m-3">
-                                    <b></b>
-                                    <div>
+                        <!-- card singola user -->
+                        <div class="my_card  m-3">
 
-                                        <!-- immagine profilo -->
-                                        <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-                                        <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                            <!-- NON TOCCARE I BB SONO I BORDI DELLE PICCOLE CARD! -->
+                            <b></b>
+                            <div>
 
-                                        <!-- testo -->
-                                        <p class="text-light position justify-content-center">{{ item.name }}<br>
+                                <!-- immagine profilo -->
+                                <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                                <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
 
-                                            <!-- linguaggi -->
-                                            <span v-for="language in item.programming_languages">{{ language.language }}<br></span><br>
+                                <!-- testo -->
+                                <div class="text-light position col-12">
+                                    <h5 class="text-center">{{ item.name }}</h5>
+                                    
+                                    <!-- linguaggi -->
+                                    <p v-for="language in item.programming_languages">{{ language.language }}</p>
+                                    
+                                    <!-- tutte le valutazioni (nascoste)-->
+                                    <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
 
-                                            <!-- tutte le valutazioni (nascoste)-->
-                                            <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
-                                            
-                                            <!-- media valutazioni -->
-                                            <p> {{ calculateAverage(item.valutations) }}</p>
-                                        </p>
-
-                                    </div>
-
-                                    <div class="content">
-
-                                        <!-- porta al profilo  -->
-                                        <router-link :to="{name:'single-dev', params: {id: item.id}}"> link</router-link>
-
-                                    </div>
+                                    <!-- media valutazioni -->
+                                    <p> {{ calculateAverage(item.valutations) }}</p>
                                 </div>
-                            
-                        </template>
-                        
-                        
 
+                            </div>
+                            <div class="content">
+
+                                <router-link :to="{name:'single-dev', params: {id: item.id}}">INFO</router-link>
+                                 
+                            </div>
+                        </div>
+
+                    </template>
 
                 </template>
 
@@ -113,17 +111,46 @@ export default {
   
   position: relative;
   width: 190px;
-  height: 254px;
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10%;
-}
-.my_border{
-    
-    border-color: $my_primary !important;
-}
 
+    p{
+        text-align: center;
+        font-size: 0.80rem;
+        margin: 0 !important;
+    
+    }
+    .my_border{
+    
+        border-color: $my_primary !important;
+    }
+
+    img{
+
+        width: 50%;
+        top:10%;
+        left: 25%;
+
+    }
+
+    .position{
+        position:absolute;
+        z-index: 99;
+    }
+    div.position{
+        word-wrap: break-word;
+        max-width: 150px;
+        left: 10%;
+    }
+
+    a{
+    
+        color: white;
+    }
+}
 
 .my_card::before {
   content: '';
@@ -136,21 +163,8 @@ export default {
   border-radius: 10%;
   
 }
-img{
-    
-    width: 50%;
-    top:10%;
-    left: 25%;
-}
-.position{
-    position:absolute;
-    z-index: 99;
-}
-p.position{
-    word-wrap: break-word;
-    max-width: 150px;
-    left: 10%;
-}
+
+
 
 .my_card::after {
   content: '';
@@ -188,20 +202,5 @@ p.position{
   bottom: 25px;
 }
 
-.content .title {
-  position: relative;
-  color: #fff;
-  font-weight: 500;
-  line-height: 1em;
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.content .title span {
-  font-weight: 300;
-  font-size: 0.70em;
-}
 
 </style>
