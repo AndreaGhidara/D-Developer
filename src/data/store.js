@@ -20,7 +20,7 @@ export const store = reactive({
     FilterText:"",
     selectedLanguages: [],
 
-    /**Funzione di richiamo */
+    // Funzione di richiamo 
     getDevs(){
         this.Loading =true;
 
