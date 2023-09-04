@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div class="container-fluid bg-black">
+<div id="contatti" class="container-fluid bg-black">
     <div class="container">
         <div class="row h-200">
             <div class="col bg-dark-subtle">

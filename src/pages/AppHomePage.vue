@@ -37,9 +37,9 @@ export default {
         <TopDevs/>
         
         <!-- introduzione -->
-            <div class="container ">
+            <div id="chi_siamo" class="container ">
             <div class="row">
-                <div class="col-4 offset-1 my_bg text-center p-5 text-white rounded">
+                <div  class="col-4 offset-1 my_bg text-center p-5 text-white rounded">
                     <p>Realizza il sito dei tuoi sogni con i nostri esperi web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività. costruiremo insieme il tuo successo sul web.</p>
                 </div>
                 <div class="col-4 offset-2 my_bg rounded">
