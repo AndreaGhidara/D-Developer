@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div class="container-fluid bg-primary pt-5">
+<div class="container-fluid pt-5">
   <div class="container">
     <div class="row h-550">
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="true">
