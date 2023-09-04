@@ -32,81 +32,112 @@ export default {
 
 <template >
    
-    <section class="container-fluid bg-dark">
-        <div class="row">
-            <div class="col-10 mx-auto text-center" >
+   <div class="gradient-background ">
 
-                <h1 class="text-light">Elenco Dev</h1>
-                
-                <div class="col-10 mx-auto">
-                    
-                    <!--si vede per mezzo secondo durante il collegamento dei dati -->
-                    <h3 v-if="store.Loading">Caricamento in corso dei dati</h3>
+       <div class="container-fluid py-5 bg_allpage">
+            
+            <div class="row">
+               
+                <div class="col-10 mx-auto text-center" >
+   
+                   <h1 class="text-light">Elenco Dev</h1>
+                   
+                   <div class="col-10 mx-auto">
+                       
+                       <!--si vede per mezzo secondo durante il collegamento dei dati -->
+                       <h3 v-if="store.Loading">Caricamento in corso dei dati</h3>
+   
+                       <!-- nel caso ci siano errori -->  
+                       <h3 v-if="store.LoadingError" class="text-danger"> {{ store.LoadingError }} </h3>
 
-                    <!-- nel caso ci siano errori -->  
-                    <h3 v-if="store.LoadingError" class="text-danger"> {{ store.LoadingError }} </h3>
-
+                   </div>
+   
                 </div>
+           </div>
+           
+           <div class="row">
 
-            </div>
-
-        </div>
-        
-        <div class="row ">
-            <div class="col-10 d-flex justify-content-around flex-wrap mx-auto">
-
-                <template v-for="item in store.ListDev" >
-
-                        <!-- mostra risultati della ricerca per nome o per linguaggio -->
-                        
+               <div class="col-10 d-flex justify-content-around flex-wrap mx-auto">
+   
+                   <template v-for="item in store.ListDev" >
+   
+                           <!-- mostra risultati della ricerca per nome o per linguaggio -->
+                           
                         <template v-if="item.name.toLowerCase().includes(store.FilterText) && store.selectedLanguages.length === 0 || store.selectedLanguages.includes(item.programming_languages[0].language)">
-
-                        <!-- card singola user -->
-                        <div class="my_card  m-3">
-
-                            <!-- NON TOCCARE I BB SONO I BORDI DELLE PICCOLE CARD! -->
-                            <b></b>
-                            <div>
-
-                                <!-- immagine profilo -->
-                                <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-                                <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
-
-                                <!-- testo -->
-                                <div class="text-light position col-12">
-                                    <h5 class="text-center">{{ item.name }}</h5>
-                                    
-                                    <!-- linguaggi -->
-                                    <p v-for="language in item.programming_languages">{{ language.language }}</p>
-                                    
-                                    <!-- tutte le valutazioni (nascoste)-->
-                                    <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
-
-                                    <!-- media valutazioni -->
-                                    <p> {{ calculateAverage(item.valutations) }}</p>
-                                </div>
-
+   
+                            <!-- card singola user -->
+                            <div class="my_card  m-3">
+        
+                                    <!-- NON TOCCARE I BB SONO I BORDI DELLE PICCOLE CARD! -->
+                                    <b></b>
+                                    <div>
+        
+                                        <!-- immagine profilo -->
+                                        <img v-if="item.img_path == '' || item.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+                                        <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
+        
+                                        <!-- testo -->
+                                        <div class="text-light position col-12">
+                                            <h5 class="text-center">{{ item.name }}</h5>
+                                            
+                                            <!-- linguaggi -->
+                                            <p v-for="language in item.programming_languages">{{ language.language }}</p>
+                                            
+                                            <!-- tutte le valutazioni (nascoste)-->
+                                            <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
+        
+                                            <!-- media valutazioni -->
+                                            <p> {{ calculateAverage(item.valutations) }}</p>
+                                        </div>
+        
+                                    </div>
+                                    <div class="content">
+        
+                                        <router-link :to="{name:'single-dev', params: {id: item.id}}">INFO</router-link>
+                                            
+                                    </div>
                             </div>
-                            <div class="content">
-
-                                <router-link :to="{name:'single-dev', params: {id: item.id}}">INFO</router-link>
-                                 
-                            </div>
-                        </div>
-
-                    </template>
-
-                </template>
-
-            </div>
-
+   
+                        </template>
+   
+                   </template>
+   
+               </div>
+   
+           </div>
+   
         </div>
-
-    </section>
+   </div>
 </template>
 
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
+
+.gradient-background {
+  background: linear-gradient(147deg,#000000,#8f7777);
+  background-size: 120% 120%;
+  animation: gradient-animation 20s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg_allpage {
+    background-image:url(/solo_onda.png);
+    background-position:  100% 50%;
+    background-size: 120vw 70vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .my_card {
   
   position: relative;
