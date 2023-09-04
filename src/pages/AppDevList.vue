@@ -57,10 +57,14 @@ export default {
 
                 <template v-for="item in store.ListDev" >
 
-                    <template v-if="item.name.toLowerCase().includes(store.FilterText)">
+                        <!-- mostra risultati della ricerca per nome o per linguaggio -->
+                        
+                        <template v-if="item.name.toLowerCase().includes(store.FilterText) && store.selectedLanguages.length === 0 || store.selectedLanguages.includes(item.programming_languages[0].language)">
 
                         <!-- card singola user -->
                         <div class="my_card  m-3">
+
+                            <!-- NON TOCCARE I BB SONO I BORDI DELLE PICCOLE CARD! -->
                             <b></b>
                             <div>
 
@@ -69,19 +73,23 @@ export default {
                                 <img v-else :src="item.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5 position" alt="{{ item.name }},{{ item.surname }}">
 
                                 <!-- testo -->
-                                <p class="text-light position justify-content-center">{{ item.name }}<br>
+                                <div class="text-light position col-12">
+                                    <h5 class="text-center">{{ item.name }}</h5>
+                                    
                                     <!-- linguaggi -->
-                                    <span v-for="language in item.programming_languages">{{ language.language }}<br></span><br>
+                                    <p v-for="language in item.programming_languages">{{ language.language }}</p>
+                                    
                                     <!-- tutte le valutazioni (nascoste)-->
                                     <span class="visually-hidden" v-for="valutation in item.valutations" :key="valutation.id">{{ valutation.valutation }}<br></span>
+
                                     <!-- media valutazioni -->
                                     <p> {{ calculateAverage(item.valutations) }}</p>
-                                </p>
+                                </div>
 
                             </div>
                             <div class="content">
 
-                                <router-link :to="{name:'single-dev', params: {id: item.id}}"> link</router-link>
+                                <router-link :to="{name:'single-dev', params: {id: item.id}}">INFO</router-link>
                                  
                             </div>
                         </div>
@@ -103,17 +111,46 @@ export default {
   
   position: relative;
   width: 190px;
-  height: 254px;
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10%;
-}
-.my_border{
-    
-    border-color: $my_primary !important;
-}
 
+    p{
+        text-align: center;
+        font-size: 0.80rem;
+        margin: 0 !important;
+    
+    }
+    .my_border{
+    
+        border-color: $my_primary !important;
+    }
+
+    img{
+
+        width: 50%;
+        top:10%;
+        left: 25%;
+
+    }
+
+    .position{
+        position:absolute;
+        z-index: 99;
+    }
+    div.position{
+        word-wrap: break-word;
+        max-width: 150px;
+        left: 10%;
+    }
+
+    a{
+    
+        color: white;
+    }
+}
 
 .my_card::before {
   content: '';
@@ -122,25 +159,12 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(315deg, $my_8,$my_primary);
+  background: linear-gradient(160deg, $my_8,$my_secondary);
   border-radius: 10%;
   
 }
-img{
-    
-    width: 50%;
-    top:10%;
-    left: 25%;
-}
-.position{
-    position:absolute;
-    z-index: 99;
-}
-p.position{
-    word-wrap: break-word;
-    max-width: 150px;
-    left: 10%;
-}
+
+
 
 .my_card::after {
   content: '';
@@ -149,7 +173,7 @@ p.position{
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(315deg,$my_primary,$my_8);
+  background: linear-gradient(160deg,$my_8,$my_secondary);
   filter: blur(5px);
   border-radius: 10%;
 }
@@ -157,7 +181,7 @@ p.position{
 .my_card b {
   position: absolute;
   inset: 6px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 2;
   border-radius: 10%;
 }
@@ -178,20 +202,5 @@ p.position{
   bottom: 25px;
 }
 
-.content .title {
-  position: relative;
-  color: #fff;
-  font-weight: 500;
-  line-height: 1em;
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.content .title span {
-  font-weight: 300;
-  font-size: 0.70em;
-}
 
 </style>
