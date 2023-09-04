@@ -1,4 +1,6 @@
 <script>
+import { store } from '../data/store'
+
 export default {
     name:'LittleButton',
     components: {
@@ -6,7 +8,7 @@ export default {
     },
     data() {
         return {
-            
+            store,
         }
     },
     props:{
@@ -23,9 +25,12 @@ export default {
 
 <template>
     <div>
-        <button class="btn">
+        <div @click="store.serchAdvanced()" class="btn">
             {{text}}
-        </button>
+        </div>
+        <!-- <div @click="store.dati(store.serchLanguage,store.serchAverage,store.serchStars)" class="btn">
+            {{text}}
+        </div> -->
     </div>
 </template>
 

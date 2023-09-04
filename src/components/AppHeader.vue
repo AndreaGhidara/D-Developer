@@ -48,7 +48,7 @@ export default {
 
             if (this.isSearchVisible) {
                 this.$nextTick(() => {
-                    this.$refs.searchInput.focus();
+                    this.$refs.searchInput;
                 });
             }
         },
@@ -99,7 +99,7 @@ export default {
             </div>
         </div>
     </nav>
-    <div class="serchBox w-100 h-50 bg-success" :class="['search-input', { show: isSearchVisible }]">
+    <div class="serchBox w-100 h-50 gradient-background" :class="['search-input', { show: isSearchVisible }]">
         <AppSearch />
     </div>
 </template>
