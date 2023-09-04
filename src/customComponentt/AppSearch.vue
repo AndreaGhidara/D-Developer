@@ -4,6 +4,9 @@ import { store } from '../data/store'
 import LittleSerch from './LittleSerch.vue';
 import LittleCheck from './LittleCheck.vue';
 import LittleButton from './LittleButton.vue'
+import LittleRadio from './LittleRadio.vue';
+import LittleStars from './LittleStars.vue';
+
 
 export default {
     name: 'AppSearch',
@@ -11,15 +14,21 @@ export default {
         LittleSerch,
         LittleCheck,
         LittleButton,
-        
+        LittleRadio,
+        LittleStars,
+
     },
     data() {
         return {
             store,
         };
     },
+    beforeMounted() {
+    },
     mounted() {
         store.getLanguages();
+        store.getDevs();
+        store.serchAdvanced()
     },
 };
 
@@ -28,123 +37,106 @@ export default {
 <template>
     <div>
         <form class="w-100">
-            <div class="row row-cols-1 g-5">
-                <div class="col">
-                    <LittleSerch />
-                </div>
-                <div class="col">
-                    <h4>Linguaggi:</h4>
-                </div>
-                <div class="col d-flex flex-wrap justify-content-end">
-                    <LittleCheck/>
+            <div class="row m-0">
+                <div class="col-12 p-0">
+                    <h4 class="ps-4">Linguaggi:</h4>
                 </div>
             </div>
-            <div class="col d-flex justify-content-end mt-5">
-                <LittleButton text='Search' />
+            <div class="row m-0 mx-3 rounded-2">
+                <template v-for="item in store.ListLanguages" :key="item">
+                    <div class="col-6 col-md-3">
+                        <LittleCheck :languageObj="item" />
+                    </div>
+                </template>
+            </div>
+            <div class="row m-0">
+                <div class="col-12 col-lg-6 p-3">
+                    <div class="p-3 rounded-2">
+                        <LittleRadio />
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center p-3">
+                    <div class="p-3 bg-black rounded-2">
+                        <LittleStars />
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col d-flex justify-content-center mt-5">
+                    <LittleButton text='Search' />
+                </div>
             </div>
         </form>
-        
-        
     </div>
 </template>
 
 <style lang="scss" scoped>
-$white: rgba(255, 255, 255, 0.3);
+.radio-buttons {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
 
+.radio-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
 
-form {
-    background: $white;
-    padding: 3em;
-    border-left: 1px solid $white;
-    border-top: 1px solid $white;
-    backdrop-filter: blur(10px);
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
-    text-align: center;
+.radio-button input[type="radio"] {
+    display: none;
+}
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #aaa;
     position: relative;
+    margin-right: 10px;
+}
+
+.radio-circle::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
     transition: all 0.2s ease-in-out;
-
-    p {
-        font-weight: 500;
-        color: #fff;
-        opacity: 0.7;
-        font-size: 1.4rem;
-        margin-top: 0;
-        margin-bottom: 60px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    a {
-        text-decoration: none;
-        color: #ddd;
-        font-size: 12px;
-
-        &:hover {
-            text-shadow: 2px 2px 6px #00000040;
-        }
-
-        &:active {
-            text-shadow: none;
-        }
-    }
-
-    input {
-        background: transparent;
-        width: 200px;
-        padding: 1em;
-        margin-bottom: 2em;
-        border: none;
-        border-left: 1px solid $white;
-        border-top: 1px solid $white;
-        border-radius: 5px;
-        backdrop-filter: blur(5px);
-        box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
-        color: #fff;
-        font-family: Montserrat, sans-serif;
-        font-weight: 500;
-        transition: all 0.2s ease-in-out;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        &[type="email"],
-        &[type="password"] {
-
-            &:focus {
-                background: rgba(255, 255, 255, 0.1);
-                box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
-            }
-        }
-
-        &[type="button"] {
-            margin-top: 10px;
-            width: 150px;
-            font-size: 1rem;
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            &:active {
-                background: rgba(255, 255, 255, 0.2);
-            }
-        }
-    }
 }
 
-::placeholder {
-    font-family: Montserrat, sans-serif;
-    font-weight: 400;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+.radio-button input[type="radio"]:checked+.radio-circle::before {
+    transform: translate(-50%, -50%) scale(1);
 }
-a,
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+
+.radio-button:nth-of-type(1) input[type="radio"]:checked+.radio-circle::before {
+    background-color: #ff6600;
+}
+
+.radio-button:nth-of-type(2) input[type="radio"]:checked+.radio-circle::before {
+    background-color: #ffffff;
+}
+
+.radio-button:nth-of-type(3) input[type="radio"]:checked+.radio-circle::before {
+    background-color: #26be00;
+}
+
+.radio-label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.radio-button:hover .radio-circle {
+    border-color: #555;
+}
+
+.radio-button:hover input[type="radio"]:checked+.radio-circle::before {
+    background-color: #555;
 }
 </style>
