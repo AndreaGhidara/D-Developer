@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             isSearchVisible: false,
-            navLink:[
+            navLinkRouter:[
                 {
                     label: "Search",
                     name:"devlist"
@@ -21,6 +21,24 @@ export default {
                     label:"Home",
                     name:"home"
                 }
+            ],
+            navLinkPageHome:[
+                {
+                    label : "Developer",
+                    link : "#top_dev"
+                },
+                {
+                    label : "Chi siamo",
+                    link : "#chi_siamo"
+                },
+                {
+                    label : "Contatti",
+                    link : "#contatti"
+                },
+                
+
+
+
             ]
         };
     },
@@ -60,30 +78,21 @@ export default {
                 <!-- Link and OfCanvas Menu -->
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        
                         <li class="nav-item">
-        
-                            <router-link :to="{name: navLink[1].name}" class="nav-link active" aria-current="page">
-                                {{ navLink[1].label }}
+                            <router-link :to="{name: navLinkRouter[1].name}" class="nav-link active" aria-current="page">
+                                {{ navLinkRouter[1].label }}
                             </router-link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Developer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Chi siamo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contatti</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
+                        
+                        <li v-for="item in navLinkPageHome" class="nav-item"><a :href="item.link" class="nav-link">{{ item.label }}</a></li>
+                        
                     </ul>
                 </div>
             </div>
             <div class="d-flex justify-content-end">
                     
-                <router-link class="search-toggle btn bg-transparent" @click="toggleSearch" :to="{name: navLink[0].name}">
+                <router-link class="search-toggle btn bg-transparent" @click="toggleSearch" :to="{name: navLinkRouter[0].name}">
                 <img class="icon" src="src/assets/icon/search.png" alt="">
                 </router-link>
                 
