@@ -159,7 +159,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(315deg, $my_8,$my_primary);
+  background: linear-gradient(160deg, $my_8,$my_secondary);
   border-radius: 10%;
   
 }
@@ -173,7 +173,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(315deg,$my_primary,$my_8);
+  background: linear-gradient(160deg,$my_8,$my_secondary);
   filter: blur(5px);
   border-radius: 10%;
 }
@@ -181,7 +181,7 @@ export default {
 .my_card b {
   position: absolute;
   inset: 6px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 2;
   border-radius: 10%;
 }

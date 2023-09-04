@@ -36,7 +36,7 @@ export default {
 
             <!-- card center -->
             <div class="col-10 mx-auto my-5">
-
+                
                 <!-- jumbo img bg user -->
                 <div class="col-12 my_height">
                     <img v-if="store.Dev.bg_dev == '' || store.Dev.bg_dev == null" src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
