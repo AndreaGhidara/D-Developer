@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="gradient-background">
 
-        <div class="container-fluid px-0 pb-2 bg_allpage">
+        <div class="container-fluid bg_allpage">
             <!-- carosel -->
             
             <Carousels/>
