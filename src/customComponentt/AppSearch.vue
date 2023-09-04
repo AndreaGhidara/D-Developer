@@ -32,6 +32,9 @@ export default {
                 <div class="col">
                     <LittleSerch />
                 </div>
+                <div class="col">
+                    <h4>Linguaggi:</h4>
+                </div>
                 <div class="col d-flex flex-wrap justify-content-end">
                     <LittleCheck/>
                 </div>
