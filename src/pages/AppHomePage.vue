@@ -40,29 +40,29 @@ export default {
         <!-- introduzione -->
             <div id="chi_siamo" class="container ">
             <div class="row py-5">
-                <div  class="col-4 offset-1 my_bg text-center p-5 text-white rounded">
+                <div  class="col-lg-4 offset-lg-1 col-12 my_bg text-center p-5 text-white rounded">
                     <p>Realizza il sito dei tuoi sogni con i nostri esperi web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività. costruiremo insieme il tuo successo sul web.</p>
                 </div>
-                <div class="col-4 offset-2 my_bg_img rounded">
+                <div class="col-md-4 offset-md-2 col-12 d-none d-lg-block">
                     
-                    <!-- immagine -->
+                    <img src="../../public/img_home/img_mini.png" alt="" class="img-fluid rounded">
                     
                 </div>
             </div>
             <div class="row py-5">
-                <div class="col-4 m-auto rounded-5 text-center text-white bg_blackOpa p-5">
+                <div class="col-md-4 col-12 m-auto rounded-5 text-center text-white bg_blackOpa p-5">
                     <h5>Vuoi diventare uno dei nostri professionisti?</h5>
                     <button class="btn orange text-white">Registrati</button>
                 </div>
             </div>
             <div class="row py-5">
-                <div class="col-8 m-auto text-center bg_orangeOpa py-5">
+                <div class="col-md-8 col-12 m-auto text-center bg_orangeOpa py-5">
                     <h4>Hanno collaborato con noi</h4>
                     <div class="row text-center">
-                        <div class="col-6 py-3">
+                        <div class="col-md-6 col-12 py-3">
                             <img src="/logoBool.png" alt="" class="img-fluid">
                         </div>
-                        <div class="col-6 py-3">
+                        <div class="col-md-6 col-12 py-3">
                             <p>loghi altri progetti</p>
                         </div>
                     </div>
@@ -86,15 +86,6 @@ export default {
 
 .my_bg {
     background-color: $my_primary;
-}
-.my_bg_img{
-    background-image: url(../../public/img_home/img_mini.png);
-    background-position: center;
-    background-size: cover;
-}
-.h-500{
-    height: 550px;
-    background-color: blue;
 }
 
 .bg_allpage {
