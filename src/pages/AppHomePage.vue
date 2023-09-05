@@ -28,7 +28,7 @@ export default {
 <template>
     <div class="gradient-background">
 
-        <div class="container-fluid bg_allpage">
+        <div class="container-fluid bg_allpage p-0">
             <!-- carosel -->
             
             <Carousels/>
@@ -39,7 +39,7 @@ export default {
         
         <!-- introduzione -->
             <div id="chi_siamo" class="container ">
-            <div class="row">
+            <div class="row py-5">
                 <div  class="col-4 offset-1 my_bg text-center p-5 text-white rounded">
                     <p>Realizza il sito dei tuoi sogni con i nostri esperi web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività. costruiremo insieme il tuo successo sul web.</p>
                 </div>
@@ -52,10 +52,10 @@ export default {
             <div class="row py-5">
                 <div class="col-4 m-auto rounded-5 text-center text-white bg_blackOpa p-5">
                     <h5>Vuoi diventare uno dei nostri professionisti?</h5>
-                    <button class="btn orange">Registrati</button>
+                    <button class="btn orange text-white">Registrati</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row py-5">
                 <div class="col-8 m-auto text-center bg_orangeOpa py-5">
                     <h4>Hanno collaborato con noi</h4>
                     <div class="row text-center">
@@ -102,6 +102,7 @@ export default {
     background-position: 0% 110%, 100% -10%, 0% 100%, 100% 0%;
     background-size: 50vh, 50vh, 120vw 50vh, 120vw 50vh;
     background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 .gradient-background {
