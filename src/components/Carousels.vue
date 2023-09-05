@@ -1,6 +1,4 @@
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { EffectCube, Pagination } from 'swiper/modules';
 
 export default {
   name: 'Carousels',
