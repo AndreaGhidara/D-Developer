@@ -4,6 +4,8 @@ import axios from 'axios';
 export const store = reactive({
 
     BaseApiUrl: "http://127.0.0.1:8000/api/",
+    //chiamata api per visualizzare img caricate da utente
+    imgApi:"http://127.0.0.1:8000/storage/",
     DevApi: "apiDeveloper",
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",

@@ -38,15 +38,16 @@ export default {
                 <div class="row mb-auto">
                     <!-- jumbo img bg user -->
                     <div class="col-12 my_height p-0 relative">
-                        <img v-if="store.Dev.bg_dev == '' || store.Dev.bg_dev == null" src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                        <img v-if="store.Dev.bg_dev" :src="this.store.imgApi + store.Dev.bg_dev" class="img-fluid my_object " alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                         
-                        <img v-else :src="store.Dev.bg_dev" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                        <img v-else src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                         <div class="absolute my_Size">
+
                             <!-- img -->
                             
-                            <img v-if="store.Dev.img_path == '' || store.Dev.img_path == null" src="https://picsum.photos/300/300?random" class="img-fluid start rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                            <img v-if="store.Dev.img_path" :src="this.store.imgApi + store.Dev.img_path" class="rounded-circle border my_border border-5 my_ratio my_object img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                             
-                            <img v-else :src="store.Dev.img_path" class="img-fluid rounded-start rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                            <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                         </div>
                     </div>
                 </div>
@@ -248,7 +249,13 @@ export default {
 *{
     color: white;
 }
-
+.my_ratio{
+    aspect-ratio: 1;
+   
+}
+.my_object{
+     object-fit: cover;
+}
 .my_Size {
     max-width: 300px;
     max-height: 300px;
@@ -279,7 +286,7 @@ export default {
     img{
         width: 100%;
         max-height: 100%;
-        object-fit: cover;
+        // object-fit: cover;
     }
 }
 a{
@@ -311,5 +318,6 @@ img.icon{
         background-position: 0% 50%;
     }
 }
+
 
 </style>
