@@ -13,6 +13,7 @@ export default {
     data() {
         return {
             store,
+            img_mini :"public/img_home/img_mini.png",
         }
     },
     methods: {
@@ -42,7 +43,7 @@ export default {
                 <div  class="col-4 offset-1 my_bg text-center p-5 text-white rounded">
                     <p>Realizza il sito dei tuoi sogni con i nostri esperi web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività. costruiremo insieme il tuo successo sul web.</p>
                 </div>
-                <div class="col-4 offset-2 my_bg rounded">
+                <div class="col-4 offset-2 my_bg_img rounded">
                     
                     <!-- immagine -->
                     
@@ -85,6 +86,11 @@ export default {
 
 .my_bg {
     background-color: $my_primary;
+}
+.my_bg_img{
+    background-image: url(../../public/img_home/img_mini.png);
+    background-position: center;
+    background-size: cover;
 }
 .h-500{
     height: 550px;

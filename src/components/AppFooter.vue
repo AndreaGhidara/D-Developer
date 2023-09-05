@@ -6,18 +6,19 @@ export default {
 
 <template>
 <div id="contatti" class="container-fluid bg_blackOpa">
-    <div class="container py-5">
-        <div class="row my-3">
+    <div class="container py-4">
+        <div class="row py-2">
             <div class="col-2">
                 <a href="#">
                     <img class="logo" src="/d.png" alt="">
                 </a>
             </div>
             <div class="col-8 d-flex justify-content-around align-items-center">
-                <a href="#" class="link">HOME</a>
-                <a href="/devlist" class="link">DEVELOPER</a>
-                <a href="" class="link">CHI SIAMO</a>
-                <a href="" class="link">CONTATTI</a>
+                <a href="" class="link">Chi Siamo</a>
+                <a href="" class="link">FAQ</a>
+                <a href="" class="link">Termini e Condizioni</a>
+                <a href="" class="link">Privacy Policy</a>
+                <a href="" class="link">Contattaci</a>
             </div>
             <div class="col-2">
                 <div class="row">
@@ -48,7 +49,7 @@ export default {
     <div class="container-fluid">
     <div class="row my_bg-dark text-center text-black">
       <div class="col">
-        <p class="mt-3 fw-semibold">© Copyright 2012 - 2020 | Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</p>
+        <p class="mt-3 fw-semibold">© Copyright 2012 - 2023 | Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</p>
       </div>
     </div>
   </div>
@@ -70,7 +71,7 @@ h4{
 }
 
 .link{
-    font-size: 24px;
+    font-size: 20px;
     color: #ff983f;
     text-decoration: none;
     font-weight: 600;
