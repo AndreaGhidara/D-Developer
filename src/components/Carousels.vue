@@ -55,8 +55,7 @@ export default {
 
 .h-650{
   /* height: 550px; */
-  object-fit: cover;
-  
+  /* object-fit: cover; */
 }
 .container-fluid{
   padding: 0 !important;
