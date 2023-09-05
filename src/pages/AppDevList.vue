@@ -46,12 +46,14 @@ export default {
 
                 </div>
             </div>
-            <div class="row row-cols-6">
+            <div class="container">
+                <div class="row justify-content-center">
                 <template v-for="dev in store.devFiltred" :key="dev">
-                    <div class="col p-2">
-                        <LittleCard :user="dev" />
+                    <div class="col-lg-3 col-sm-6 col-12 p-3">
+                        <LittleCard :user="dev" class="m-auto"/>
                     </div>
                 </template>
+                </div>
             </div>
 
             <!-- <div class="row">
