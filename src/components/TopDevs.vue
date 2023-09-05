@@ -29,7 +29,7 @@ export default {
                     <h1>I nostri professionisti in evidenza</h1>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-4 g4">
+            <div class="row row-cols-2 row-cols-md-4 g4">
                 <!-- cards dei top devs -->
                 <div v-for="item in store.ListDevPage" class="col">
                     <div class="bg-transparent border-0 text-center">
