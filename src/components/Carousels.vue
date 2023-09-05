@@ -1,4 +1,7 @@
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { EffectCube, Pagination } from 'swiper/modules';
+
 export default {
   name: 'Carousels',
   data(){
@@ -29,13 +32,10 @@ export default {
             </div>
           </div>
           <div class="carousel-item" v-for="item in linkImg">
-            
             <div class="h-650">
               <img :src="item.src" alt="" class="d-block w-100 img-fluid" >
             </div>
-
           </div>
-      
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

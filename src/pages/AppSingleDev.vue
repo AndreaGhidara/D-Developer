@@ -6,7 +6,7 @@ export default {
     name:"AppSingleDev",
     name: 'Carousels',
     components: {
-        
+
     },
     data() {
         return {
@@ -224,31 +224,18 @@ export default {
             <!-- finish card rew -->
 
             <!-- carousel for rew -->
-            <!-- <div class="container p-5">
+            <div class="container p-5">
                 <div class="row">
-                    <div class="col-8 m-auto">
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="true">
-                            <div class="carousel-inner ">
-                                <template v-for="(reviews in store.Dev.review)">
-                                    <div class="carousel-item active ">
-                                        <div class="bg-danger h-550">
-                                            <p>{{ reviews.review }}</p>
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                    <h4>Recensioni</h4>
+                    <template v-for="(reviews, c) in store.Dev.review">
+                        <div class="col-3 p-5 mx-1 gradient-background h-550 text-center rounded">
+                            <h6>{{ reviews.name }}</h6>
+                            <small>{{ reviews.email }}</small>
+                            <p>{{ reviews.review }}</p>
                         </div>
-                    </div>
+                    </template>
                 </div>
-            </div> -->
+            </div>
             <!-- finish carousel for rew -->
 
     </section>
