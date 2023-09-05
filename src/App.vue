@@ -41,11 +41,11 @@ export default {
 
  * {
   scrollbar-width: auto;
-  scrollbar-color: ColorPrimary;
+  scrollbar-color: $my_primary;
 }
 
 *::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -53,8 +53,8 @@ export default {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #ef6f31;
+  background-color: #ff6600;
   border-radius: 10px;
-  border: 3px solid #ffffff;
+  border: 1px solid #ffffff;
 }
 </style>
