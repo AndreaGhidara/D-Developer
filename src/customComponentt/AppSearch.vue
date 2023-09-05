@@ -61,7 +61,7 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="row pb-3">
+            <div class="row m-0 pb-3">
                 <div class="col d-flex justify-content-center mt-5">
                     <LittleButton text='Search' />
                 </div>

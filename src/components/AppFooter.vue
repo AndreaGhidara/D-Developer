@@ -49,7 +49,7 @@ export default {
     <div class="container-fluid">
     <div class="row my_bg-dark text-center text-black">
       <div class="col">
-        <p class="mt-3 fw-semibold">© Copyright 2012 - 2023 | Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</p>
+        <p class="mt-3 fw-semibold">© Copyright 2023 - 2023 | D-Developer 2023 | All Rights Reserved </p>
       </div>
     </div>
   </div>
