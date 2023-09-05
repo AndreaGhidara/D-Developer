@@ -12,8 +12,11 @@ export default {
         return {
             store,
             
+            BaseApiUrl: "http://127.0.0.1:8000/api/",
+            urlMessage: "message",
+           
             newComment:{
-                
+                user_id:"",
                 name : "",
                 surname : "",
                 email :"" ,
@@ -23,39 +26,35 @@ export default {
         }
     },
     methods: {
-        addComment(){
+    
+        postMessage(){
 
-            // axios.post(this.store.BaseApiUrl + this.store.DevApi + '/' + id, this.newComment).then(r =>{
-            //     console.log(r.data);
-            // });
+            this.newComment.user_id= this.store.Dev.id;
+             
+            axios.post(this.BaseApiUrl + this.urlMessage, this.newComment)
+            .then((r) => {
 
+                console.log('chiamata effetuata');
+                this.newComment.name = "";
+                this.newComment.surname= "";
+                this.newComment.email = "";
+                this.newComment.text = "";
 
-/**da qui funziona */
-            // let arrayComment = this.store.Dev.message
-            // let add = {...this.newComment}
-
-            // arrayComment.push(add);
-            
-            // this.newComment.name = ""
-            // this.newComment.surname= ""
-            // this.newComment.email =""
-            // this.newComment.text = ""
-            
-            // console.log(arrayComment);
-//**fino a qui */
-            // let addComment = {...this.newComment}
-            // this.store.Dev.message.push(addComment)
-            //
-        }
-       
+                alert('messaggio inviato');
+            } )
+            .catch(err =>{
+                console.log(err.message);
+            })
+        },
     },
     beforeMount(){
         store.getDev(this.$route.params.id);
+        
     },
     mounted() {
 
-        
-       this.store.average(store.Dev.valutations);
+        this.store.average(store.Dev.valutations);
+      
     
     },
     
@@ -175,7 +174,7 @@ export default {
 
                     <div class="col-md-7 col-12 gradient-background rounded p-5 mb-2">
 
-                        <!-- <form > -->
+                        <form method="post">
 
                             <div class="col-12 mx-auto fw-bold">
                                 <h2>Contattami</h2>
@@ -211,11 +210,12 @@ export default {
                             
                             <div class="col-2 mt-5 mx-auto">
     
-                                <button type="submit"  @click="addComment()" class="btn btn-primary">Invia</button>
+                                <button  type="button" @click="postMessage()" class="btn btn-primary">Invia</button>
     
                             </div>
 
-                        <!-- </form> -->
+                        </form>
+                        
 
                     </div>
                 <!-- finish card message -->
@@ -223,7 +223,7 @@ export default {
                 <!-- section rew -->
                     <div class="col-md-4 col-12 offset-md-1 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
                         
-                        <form action="" method="post">
+                        <!-- <form action="" method="post"> -->
 
                         <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
 
@@ -255,7 +255,7 @@ export default {
                                 <button type="submit" class="btn btn-primary">Invia</button>
 
                             </div>
-                        </form>   
+                        <!-- </form>    -->
                         <!-- </div> -->
 
                     </div>

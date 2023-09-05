@@ -9,6 +9,7 @@ export const store = reactive({
     DevApi: "apiDeveloper",
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",
+  
     ListDev: [],
     ListDevPage: [],
     ListLanguages: [],
@@ -102,6 +103,7 @@ export const store = reactive({
             });
 
     },
+ 
 
     /*FUNZIONE PER FARE LA MEDIA*/
     average(array) {
@@ -130,6 +132,7 @@ export const store = reactive({
     somma(num1, num2) {
         return num1 + num2;
     },
+
 
     /**Funzione di richiamo linguaggi*/
     getLanguages() {
