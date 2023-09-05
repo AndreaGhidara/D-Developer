@@ -22,16 +22,16 @@ export default {
 <div class="container-fluid">
   
     <div class="row h-650">
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="true">
+      <div id="carouselExampleAutoplaying" class="carousel slide col-12" data-bs-ride="true">
         <div class="carousel-inner ">
           <div class="carousel-item active ">
             <div class="h-650">
-              <img :src="imgActive" class="d-block w-100" alt="...">
+              <img :src="imgActive" class="img-fluid" alt="...">
             </div>
           </div>
           <div class="carousel-item" v-for="item in linkImg">
             <div class="h-650">
-              <img :src="item.src" alt="" class="d-block w-100 img-fluid" >
+              <img :src="item.src" alt="" class="img-fluid" >
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default {
 
 .h-650{
   /* height: 550px; */
-  height: calc(100vh - 100px);
+  object-fit: cover;
   
 }
 .container-fluid{

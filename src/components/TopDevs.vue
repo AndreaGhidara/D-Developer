@@ -41,7 +41,7 @@ export default {
                             </div>
                             <div class="back rounded-circle border border-5 text-center py-5 px-3">
                                 <h5>{{item.name}} {{ item.surname }}</h5>
-                                <p>{{item.bio}}</p>
+                                <p class="text-truncate">{{item.bio}}</p>
                             </div>
                         </div>
                         <div class="bg-transparent py-3">
