@@ -37,26 +37,26 @@ export default {
             <!-- card center -->
                 <div class="row mb-auto">
                     <!-- jumbo img bg user -->
-                    <div class="col-12 my_height p-0 relative">
+                    <div class="col-12 my_height p-0">
                         <img v-if="store.Dev.bg_dev" :src="this.store.imgApi + store.Dev.bg_dev" class="img-fluid my_object " alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                         
                         <img v-else src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
-                        <div class="absolute my_Size">
+                    </div>
+                    <div class="col-4 relative my_Size">
 
-                            <!-- img -->
-                            
-                            <img v-if="store.Dev.img_path" :src="this.store.imgApi + store.Dev.img_path" class="rounded-circle border my_border border-5 my_ratio my_object img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
-                            
-                            <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
-                        </div>
+                        <!-- img -->
+                        
+                        <img v-if="store.Dev.img_path" :src="this.store.imgApi + store.Dev.img_path" class="rounded-circle border my_border border-5 my_ratio my_object img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                        
+                        <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                     </div>
                 </div>
 
                 <!-- col big -->
-                <div class="container">
-                    <div class="row">
+                <div class="container pt-2 bg-white rounded px-5">
+                    <div class="row py-md-5">
                         <!-- left side -->
-                        <div class="col-4 p-3 mt-5 gradient-background rounded align-self-start">
+                        <div class="col-md-4 col-12 p-3 mb-2 gradient-background rounded align-self-start">
                             <!-- name surname -->
                                 <div class="text-center">
                                     <div>
@@ -103,7 +103,7 @@ export default {
                         </div>
 
                         <!-- right side -->
-                        <div class="col-7 offset-1 p-3 mt-5 gradient-background rounded">
+                        <div class="col-12 col-md-7 offset-md-1 p-3 gradient-background rounded">
 
                             
                             <div>
@@ -137,27 +137,27 @@ export default {
                 </div>
 
             <!-- section message -->
-            <div class="container">
+            <div class="container bg-white rounded px-5 mt-4">
 
-                <div class="row py-5">
-                    <div class="col-7 gradient-background rounded p-3">
-                        <div class="col-11 mx-auto fw-bold">
+                <div class="row py-md-5 py-2">
+                    <div class="col-md-7 col-12 gradient-background rounded p-5 mb-2">
+                        <div class="col-12 mx-auto fw-bold">
                             <h2>Contattami</h2>
                         </div>
                         
-                        <div class="col-12 d-flex justify-content-around">
-                            <div class="my-2 col-5">
+                        <div class="col-12 d-flex flex-wrap">
+                            <div class="my-2 col-12 col-md-4 me-auto">
                                 <label for="exampleFormControlInput1" class="form-label fw-bold">Name</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
                             </div>
                                 
-                            <div class="my-2 col-5">
+                            <div class="my-2 col-12 col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label fw-bold">Surname</label>
                                 <input type="tetx" class="form-control" id="exampleFormControlInput1" placeholder="Surname">
                             </div> 
                         </div>
                         
-                        <div class="col-11 mx-auto">
+                        <div class="col-12 mx-auto">
 
                             <div class="my-2">
                                 <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
@@ -166,14 +166,14 @@ export default {
 
                         </div>      
                         
-                        <div class="col-11 mx-auto">
+                        <div class="col-12 mx-auto">
                             <div class="my-2">
                                 <label for="exampleFormControlTextarea1" class="form-label fw-bold">Message</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add message.."></textarea>
                             </div>
                         </div>
                         
-                        <div class="col-1 my-2 mx-auto">
+                        <div class="col-2 mt-5 mx-auto">
 
                             <button type="submit" class="btn btn-primary">Invia</button>
 
@@ -183,27 +183,27 @@ export default {
                 <!-- finish card message -->
 
                 <!-- section rew -->
-                    <div class="col-4 offset-1 p-3 gradient-background rounded">
+                    <div class="col-md-4 col-12 offset-md-1 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
                         
                         <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
 
-                            <div class="col-11 mx-auto fw-bold">
+                            <div class="col-12 mx-auto fw-bold pt-5">
                                 <h2>Lascia una recensione</h2>
                             </div>
                             
-                            <div class="col-12 d-flex justify-content-around p-3">
-                                <div class="my-2 col-5">
+                            <div class="col-12 d-flex flex-wrap">
+                                <div class="my-2 col-12 col-md-4 me-auto">
                                     <label for="exampleFormControlInput1" class="form-label fw-bold">Name</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
                                 </div>
                                     
-                                <div class="my-2 col-5">
+                                <div class="my-2 col-12 col-md-4">
                                     <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                                 </div>
                             </div>
                         
-                            <div class="col-11 mx-auto">
+                            <div class="col-12 mx-auto">
                                 <div class="my-2">
                                     <label for="exampleFormControlTextarea1" class="form-label fw-bold">Commento</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add comment.."></textarea>
@@ -274,11 +274,9 @@ export default {
 
 .relative{
     position: relative;
-}
-.absolute{
-    position: relative;
     bottom: 350px;
     left: 10%;
+    max-height: 300px;
 }
 
 .my_height{
