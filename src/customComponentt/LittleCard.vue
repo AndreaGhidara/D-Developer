@@ -28,7 +28,9 @@ export default {
     <div class="card">
         <b class="text-white">
             <div>
-                <img class="img-fluid object-fit-cover" src="public/img_home/img_1.png" alt="">
+                <img v-if="user.img_path == '' || user.path == null" class="img-fluid object-fit-cover" src="https://picsum.photos/300/300?random" alt="">
+
+                <img v-else :src="user.img_path" alt="">
             </div>
             <div class="name">
                 {{ user.name }}
@@ -63,7 +65,7 @@ export default {
                     </router-link>
                 </li>
                 <li>
-                    <a href="#">
+                    <a :href="user.github_link">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                             viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <path
@@ -73,7 +75,7 @@ export default {
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a :href="user.linkedin_link">
                         <svg class="fa-brands fa-git-hub" width="24" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512">
                             <path
