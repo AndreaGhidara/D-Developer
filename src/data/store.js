@@ -90,7 +90,7 @@ export const store = reactive({
             .then(r => {
 
                 this.Dev = r.data.results;
-                // console.log(this.Dev);
+                 console.log(this.Dev);
                 this.loading = false;
 
             })
@@ -139,7 +139,7 @@ export const store = reactive({
             .then((r) => {
 
                 this.ListLanguages = r.data.results;
-                console.log(this.ListLanguages);
+                //console.log(this.ListLanguages);
                 this.Loading = false;
 
             })
@@ -170,7 +170,7 @@ export const store = reactive({
         const selectedLanguages = this.serchLanguage; // Array di linguaggi [javascript, php, python]
         const selectedAverage = this.serchAverage; // Stringa con '>10' oppure '10>50' oppure '>50'
         const selectedStars = Number(this.serchStars); // Numero da 1 a 5
-        console.log(selectedStars);
+        //console.log(selectedStars);
     
         // Filtra gli sviluppatori in base ai criteri
         this.devFiltred = this.ListDev.filter(dev => {
@@ -193,7 +193,7 @@ export const store = reactive({
             // Restituisci true solo se tutti i criteri sono soddisfatti
             return linguaggioCorrisponde && recensioniMatched && valutazioneMediaMatched;
         });
-        console.log(this.devFiltred);
+        //console.log(this.devFiltred);
         
         // Restituisci l'array dei developers filtrati
         return this.devFiltred;

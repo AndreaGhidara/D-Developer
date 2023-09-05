@@ -1,6 +1,6 @@
 <script>
 import { store } from '../data/store';
-
+import axios from 'axios';
 
 export default {
     name:"AppSingleDev",
@@ -11,11 +11,43 @@ export default {
     data() {
         return {
             store,
+            
+            newComment:{
+                
+                name : "",
+                surname : "",
+                email :"" ,
+                text : "",
+
+            },
         }
     },
     methods: {
+        addComment(){
 
-    
+            // axios.post(this.store.BaseApiUrl + this.store.DevApi + '/' + id, this.newComment).then(r =>{
+            //     console.log(r.data);
+            // });
+
+
+/**da qui funziona */
+            // let arrayComment = this.store.Dev.message
+            // let add = {...this.newComment}
+
+            // arrayComment.push(add);
+            
+            // this.newComment.name = ""
+            // this.newComment.surname= ""
+            // this.newComment.email =""
+            // this.newComment.text = ""
+            
+            // console.log(arrayComment);
+//**fino a qui */
+            // let addComment = {...this.newComment}
+            // this.store.Dev.message.push(addComment)
+            //
+        }
+       
     },
     beforeMount(){
         store.getDev(this.$route.params.id);
@@ -24,7 +56,7 @@ export default {
 
         
        this.store.average(store.Dev.valutations);
-        
+    
     },
     
 }
@@ -140,44 +172,50 @@ export default {
             <div class="container bg-white rounded px-5 mt-4">
 
                 <div class="row py-md-5 py-2">
+
                     <div class="col-md-7 col-12 gradient-background rounded p-5 mb-2">
-                        <div class="col-12 mx-auto fw-bold">
-                            <h2>Contattami</h2>
-                        </div>
-                        
-                        <div class="col-12 d-flex flex-wrap">
-                            <div class="my-2 col-12 col-md-4 me-auto">
-                                <label for="exampleFormControlInput1" class="form-label fw-bold">Name</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+
+                        <!-- <form > -->
+
+                            <div class="col-12 mx-auto fw-bold">
+                                <h2>Contattami</h2>
                             </div>
-                                
-                            <div class="my-2 col-12 col-md-4">
-                                <label for="exampleFormControlInput1" class="form-label fw-bold">Surname</label>
-                                <input type="tetx" class="form-control" id="exampleFormControlInput1" placeholder="Surname">
-                            </div> 
-                        </div>
-                        
-                        <div class="col-12 mx-auto">
-
-                            <div class="my-2">
-                                <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            
+                            <div class="col-12 d-flex flex-wrap">
+                                <div class="my-2 col-12 col-md-4 me-auto">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nome</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" v-model="this.newComment.name">
+                                </div>
+                                    
+                                <div class="my-2 col-12 col-md-4">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Cognome</label>
+                                    <input type="tetx" class="form-control" id="exampleFormControlInput1" placeholder="Cognome" v-model="this.newComment.surname">
+                                </div> 
+                            </div>
+                            
+                            <div class="col-12 mx-auto">
+    
+                                <div class="my-2">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Indirizzo Email</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci indirizzo mail" v-model="this.newComment.email">
+                                </div>
+    
+                            </div>      
+                            
+                            <div class="col-12 mx-auto">
+                                <div class="my-2">
+                                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Messaggio</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Lascia un messaggio.." v-model="this.newComment.text"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-2 mt-5 mx-auto">
+    
+                                <button type="submit"  @click="addComment()" class="btn btn-primary">Invia</button>
+    
                             </div>
 
-                        </div>      
-                        
-                        <div class="col-12 mx-auto">
-                            <div class="my-2">
-                                <label for="exampleFormControlTextarea1" class="form-label fw-bold">Message</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add message.."></textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="col-2 mt-5 mx-auto">
-
-                            <button type="submit" class="btn btn-primary">Invia</button>
-
-                        </div>
+                        <!-- </form> -->
 
                     </div>
                 <!-- finish card message -->
@@ -185,6 +223,8 @@ export default {
                 <!-- section rew -->
                     <div class="col-md-4 col-12 offset-md-1 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
                         
+                        <form action="" method="post">
+
                         <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
 
                             <div class="col-12 mx-auto fw-bold pt-5">
@@ -215,7 +255,7 @@ export default {
                                 <button type="submit" class="btn btn-primary">Invia</button>
 
                             </div>
-                            
+                        </form>   
                         <!-- </div> -->
 
                     </div>
@@ -247,7 +287,7 @@ export default {
 @use'../style/variable.scss' as*;
 
 *{
-    color: white;
+    // color: white;
 }
 .my_ratio{
     aspect-ratio: 1;
