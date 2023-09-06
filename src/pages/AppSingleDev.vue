@@ -193,7 +193,7 @@ export default {
                 <!-- section rew -->
                     <div class="col-md-4 col-12 offset-md-1 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
                         
-                        <!-- <form action="" method="post"> -->
+                        <form method="post">
 
                         <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
 
@@ -203,29 +203,30 @@ export default {
                             
                             <div class="col-12 d-flex flex-wrap">
                                 <div class="my-2 col-12 col-md-4 me-auto">
-                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Name</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nome</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" v-model="this.store.newReview.name">
                                 </div>
                                     
                                 <div class="my-2 col-12 col-md-4">
                                     <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email" v-model="this.store.newReview.email">
                                 </div>
                             </div>
                         
                             <div class="col-12 mx-auto">
                                 <div class="my-2">
-                                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Commento</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add comment.."></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Scrivi Recensione</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Aggiungi una recensione.." v-model="this.store.newReview.review"></textarea>
                                 </div>
                             </div>
                             
                             <div class="col-1 my-2 m-auto">
 
-                                <button type="submit" class="btn btn-primary">Invia</button>
+                                <button type="button" class="btn btn-primary" @click="store.postReview()">Invia</button>
 
                             </div>
-                        <!-- </form>    -->
+
+                        </form>   
                         <!-- </div> -->
 
                     </div>

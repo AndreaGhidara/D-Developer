@@ -10,6 +10,7 @@ export const store = reactive({
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",
     urlMessage:"message", //url per message
+    urlReview:"review", //url review
     ListDev: [],
     ListDevPage: [],
     ListLanguages: [],
@@ -35,6 +36,16 @@ export const store = reactive({
         surname:"",
         email:"",
         text:"",
+    },
+
+    //object for review
+
+    newReview:{
+        user_id : "",
+        date : "",
+        name: "",
+        email :"",
+        review:""
     },
 
     // Funzione di richiamo 
@@ -100,7 +111,7 @@ export const store = reactive({
             .then(r => {
 
                 this.Dev = r.data.results;
-                 console.log(this.Dev);
+                // console.log(this.Dev);
                 this.loading = false;
 
             })
@@ -238,7 +249,7 @@ export const store = reactive({
         axios.post(this.BaseApiUrl + this.urlMessage, this.newComment)
         .then((r) => {
 
-            console.log('chiamata effetuata');
+            //console.log('chiamata effetuata');
             this.newComment.name = "";
             this.newComment.surname= "";
             this.newComment.email = "";
@@ -251,5 +262,24 @@ export const store = reactive({
         })
     },
 
+    //function for post review
 
+    postReview(){
+        this.newReview.user_id = this.Dev.id;
+        this.newReview.date = "1992-10-12 00:00:00";
+
+        axios.post(this.BaseApiUrl + this.urlReview, this.newReview)
+        .then((r) =>{
+
+            //console.log('chiamata ok');
+            this.newReview.name= "";
+            this.newReview.email = "";
+            this.newReview.review = "";
+
+            alert('recensione inviata');
+        })
+        .catch(err =>{
+            console.log(err.message);
+        })
+    }
 });
