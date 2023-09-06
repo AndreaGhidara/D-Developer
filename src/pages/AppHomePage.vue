@@ -45,7 +45,7 @@ export default {
                 </div>
                 <div class="col-md-4 offset-md-2 col-12 d-none d-lg-block">
                     
-                    <img src="../../public/img_home/img_mini.png" alt="" class="img-fluid rounded">
+                    <img src="../assets/img_home/img_mini.png" alt="" class="img-fluid rounded">
                     
                 </div>
             </div>

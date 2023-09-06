@@ -4,13 +4,13 @@ export default {
   name: 'Carousels',
   data(){
     return{
-      imgActive: "public/img_home/img_1.png",
+      imgActive: "src/assets/img_home/img_1.png",
       linkImg:[
         {
-          src:"public/img_home/img_2.png"
+          src:"src/assets/img_home/img_2.png"
         },
         {
-          src:"public/img_home/img_3.png",
+          src:"src/assets/img_home/img_3.png",
         },  
       ]
     }
