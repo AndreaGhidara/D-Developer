@@ -1,4 +1,5 @@
 <script>
+
 import { store } from '../data/store';
 
 export default {
@@ -10,11 +11,11 @@ export default {
     data() {
         return {
             store,
-        
+           
         }
     },
     methods: {
-    
+        
        
     },
     beforeMount(){
@@ -24,7 +25,7 @@ export default {
     mounted() {
 
         this.store.average(store.Dev.valutations);
-      
+        this.store.getValutation();
     
     },
     
@@ -235,6 +236,29 @@ export default {
         </div>
             <!-- finish card rew -->
 
+
+            <!--valutation index -->
+            <div class="text-center">
+                <h4>Valuta la tua esperienza</h4>
+                <form>
+                
+                    <select v-model="this.store.newValutation.valutation_id">
+                        <option disabled value>Select opinion</option>
+                        <template v-for="item in this.store.ListValutation">
+                            <option :id="item.id" :value="item.id">{{ item.valutation_name }}</option>
+                        </template>
+                        
+
+                    </select>
+                   
+                    <button type="button" @click="store.postValutation()" class="btn btn-primary">
+                        Invia
+                    </button>
+                </form>
+
+            </div>
+            <!-- valutation finish -->
+
             <!-- carousel for rew -->
             <div class="container p-5">
                 <div class="row">
@@ -257,9 +281,9 @@ export default {
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
 
-*{
-    // color: white;
-}
+// *{
+//  color: white;
+// }
 .my_ratio{
     aspect-ratio: 1;
    

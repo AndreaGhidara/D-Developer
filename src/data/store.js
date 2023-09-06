@@ -9,8 +9,11 @@ export const store = reactive({
     DevApi: "apiDeveloper",
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",
-    urlMessage:"message", //url per message
-    urlReview:"review", //url review
+    urlMessage:"message", //url per message for post
+    urlReview:"review", //url review for post
+    urlValutation:"valutation",//url valutation for get
+    urlNewValutaion:"postValutation",//url valutation for post
+    ListValutation:[],
     ListDev: [],
     ListDevPage: [],
     ListLanguages: [],
@@ -23,7 +26,6 @@ export const store = reactive({
     Dev: [],
     Stars: 5,
     Tempo: false,
-    ////////////////////////////////////////////////////////
     devFiltred: [],
     serchLanguage: [],
     serchAverage: 0,
@@ -48,7 +50,20 @@ export const store = reactive({
         review:""
     },
 
-    // Funzione di richiamo 
+    //object for valutation
+
+    newValutation:{
+        user_id:"",
+        valutation_id:"",
+    },
+
+
+/******************************************* */
+/*****************INIZIO FUNZIONI************* */
+/********************************************** */
+
+
+// Funzione di richiamo 
     getDevs() {
         this.Loading = true;
 
@@ -56,7 +71,7 @@ export const store = reactive({
             .then((r) => {
 
                 this.ListDev = r.data.results;
-                // console.log(this.ListDev);
+                console.log(this.ListDev);
                 this.Loading = false;
 
             })
@@ -281,5 +296,45 @@ export const store = reactive({
         .catch(err =>{
             console.log(err.message);
         })
+    },
+
+    //function richiamo valutation
+       
+    getValutation() {
+        this.Loading = true;
+    
+        axios.get(this.BaseApiUrl + this.urlValutation)
+        .then((r) => {
+    
+            this.ListValutation = r.data.results;
+            //console.log(this.ListValutation);
+            this.Loading = false;
+    
+        })
+        .catch(err => {
+    
+            this.Loading = false;
+            this.LoadingError = "Errore nel caricamento" + err.message;
+        })
+    },
+
+    //function post valutation
+
+    postValutation(){
+        
+        this.newValutation.user_id = this.Dev.id;
+            
+        axios.post(this.BaseApiUrl + this.urlNewValutaion , this.newValutation)
+        .then((r) =>{
+            
+            this.newValutation.valutation_id = "";
+
+            alert('valutazione inviata con successo!');
+            // console.log('preso!');
+        })
+        .catch(err =>{
+            console.log(err.message);
+        })
     }
+
 });
