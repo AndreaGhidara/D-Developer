@@ -9,7 +9,7 @@ export const store = reactive({
     DevApi: "apiDeveloper",
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",
-  
+    urlMessage:"message", //url per message
     ListDev: [],
     ListDevPage: [],
     ListLanguages: [],
@@ -27,6 +27,15 @@ export const store = reactive({
     serchLanguage: [],
     serchAverage: 0,
     serchStars: 0,
+
+    //object for new message
+    newComment:{
+        user_id : "",
+        name:"",
+        surname:"",
+        email:"",
+        text:"",
+    },
 
     // Funzione di richiamo 
     getDevs() {
@@ -218,7 +227,29 @@ export const store = reactive({
             return valutazioneMedia === selectedStars;
         }
         return true; // Nessun filtro specificato o filtro non valido, restituisci true
-    }
+    },
+
+    //function for post message
+
+    postMessage(){
+
+        this.newComment.user_id= this.Dev.id;
+         
+        axios.post(this.BaseApiUrl + this.urlMessage, this.newComment)
+        .then((r) => {
+
+            console.log('chiamata effetuata');
+            this.newComment.name = "";
+            this.newComment.surname= "";
+            this.newComment.email = "";
+            this.newComment.text = "";
+
+            alert('messaggio inviato');
+        } )
+        .catch(err =>{
+            console.log(err.message);
+        })
+    },
 
 
 });
