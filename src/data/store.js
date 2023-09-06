@@ -71,7 +71,7 @@ export const store = reactive({
             .then((r) => {
 
                 this.ListDev = r.data.results;
-                console.log(this.ListDev);
+                //console.log(this.ListDev);
                 this.Loading = false;
 
             })
@@ -110,8 +110,7 @@ export const store = reactive({
                 .catch(err => {
 
                     this.Loading = false;
-                    this.LoadingError = "Errore nel caricamento " + err.message;
-
+                    this.LoadingError = "Errore nel caricamento " + err.message;                  
                 })
 
         }
@@ -134,7 +133,7 @@ export const store = reactive({
 
                 this.loading = false;
                 this.LoadingError = "Errore nel caricamento " + err.message;
-
+                
             });
 
     },

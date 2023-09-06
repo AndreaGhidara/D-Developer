@@ -27,6 +27,19 @@ export default {
             <div class="row">
                 <div class="col-12 text-center pb-5 text-white">
                     <h1>I nostri professionisti in evidenza</h1>
+
+                    <!-- nel caso di errore -->
+                    <section>
+                        <div class="col-10 mx-auto">
+
+                            <!--si vede per mezzo secondo durante il collegamento dei dati -->
+                            <h3 v-if="store.Loading">Caricamento in corso dei dati</h3>
+
+                            <!-- nel caso ci siano errori -->
+                            <h3 v-if="store.LoadingError" class="text-danger"> {{ store.LoadingError }} </h3>
+
+                        </div>
+                    </section>
                 </div>
             </div>
             <div class="row row-cols-2 row-cols-md-4 g4">
@@ -49,14 +62,6 @@ export default {
                         </div>
                     </div>
                 </div>         
-            </div>
-            <div class="row">
-                <div class="col d-flex justify-content-center align-item-center pt-5">
-
-                    <!-- mostra tutti i devs -->
-
-                    <a href="/devlist" class="btn orange text-white">Mostra Tutti</a>
-                </div>
             </div>
         </div>
     </div>
