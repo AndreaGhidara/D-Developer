@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div id="contatti" class="container-fluid bg_blackOpa">
+<div id="contatti" class="container-fluid bg_img">
     <div class="container py-4">
         <div class="row py-2">
             <div class="col-2">
@@ -47,7 +47,7 @@ export default {
         </div>
     </div>
     <div class="container-fluid">
-    <div class="row my_bg-dark text-center text-black">
+    <div class="row my_bg-dark text-center text-light">
       <div class="col">
         <p class="mt-3 fw-semibold">© Copyright 2023 - 2023 | D-Developer 2023 | All Rights Reserved </p>
       </div>
@@ -57,22 +57,27 @@ export default {
 
 </template>
 
-<style scoped>
-.h-200{
-    height: 200px;
-}
+<style lang="scss" scoped>
 
-.bg_blackOpa {
-    background-color: #302828;
+@use'../style/variable.scss' as*;
+
+
+.bg_img {
+    /* background-color: #302828; */
+    background-image: url(../assets/img_home/footer.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 }
 
 h4{
-    color: #ff983f;
+    color: $my_10;
 }
 
 .link{
     font-size: 20px;
-    color: #ff983f;
+    color: $my_10;
     text-decoration: none;
     font-weight: 600;
 
@@ -83,24 +88,25 @@ a img{
 }
 
 .container{
-    border-bottom: 1px solid #292222 ;
+    border-bottom: 1px solid $my_10 ;
 }
 
+
 .btn-cssbuttons {
- --btn-color: #ff983f;
+ --btn-color: #F87865;
  position: relative;
  padding: 16px 32px;
  font-family: Roboto, sans-serif;
  font-weight: 500;
  font-size: 16px;
  line-height: 1;
- color: white;
+ color: $my_10;
  background: none;
  border: none;
  outline: none;
  overflow: hidden;
  cursor: pointer;
- filter: drop-shadow(0 2px 8px #ff983f99);
+ filter: drop-shadow(0 2px 8px $my_10);
  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -199,9 +205,9 @@ a img{
 
   background-image: linear-gradient(
     to right,
-    #ff983f,
-    #ff983f 50%,
-    #ff983f 50%
+    $my_10,
+    $my_10 50%,
+    $my_10 50%
     
   );
   background-size: 200% 100%;
@@ -217,7 +223,7 @@ a img{
 
 .link:before{
   content: '';
-  background: #ff983f;
+  background: $my_10;
   display: block;
   position: absolute;
   bottom: -3px;
@@ -225,12 +231,12 @@ a img{
   width: 0;
   height: 3px;
   transition: all 0.3s ease-in-out;
-  filter: drop-shadow(0 2px 8px #ff983f99);
+  filter: drop-shadow(0 2px 8px $my_10);
 }
 
 .link:hover {
  background-position: 0;
- filter: drop-shadow(0 2px 8px #ff983f99);
+ filter: drop-shadow(0 2px 8px $my_10);
 }
 
 .link:hover::before{
