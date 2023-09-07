@@ -39,24 +39,24 @@ export default {
             <!-- card center -->
                 <div class="row mb-auto">
                     <!-- jumbo img bg user -->
-                    <div class="col-12 my_height p-0">
-                        <img v-if="store.Dev.bg_dev" :src="this.store.imgApi + store.Dev.bg_dev" class="img-fluid my_object " alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
-                        
-                        <img v-else src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
-                    </div>
                     <div class="col-4 relative my_Size">
-
+                        
                         <!-- img -->
                         
                         <img v-if="store.Dev.img_path" :src="this.store.imgApi + store.Dev.img_path" class="rounded-circle border my_border border-5 my_ratio my_object img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                         
                         <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border my_border border-5" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
                     </div>
+                    <div class="col-12 my_height p-0">
+                        <img v-if="store.Dev.bg_dev" :src="this.store.imgApi + store.Dev.bg_dev" class="img-fluid my_object " alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                        
+                        <img v-else src="https://picsum.photos/1200/720?random" class="img-fluid" alt="{{ store.Dev.name }},{{ store.Dev.surname }}">
+                    </div>
                 </div>
 
                 <!-- col big -->
-                <div class="container pt-2 bg-white rounded px-5">
-                    <div class="row py-md-5">
+                <div class="container rounded px-5">
+                    <div class="row py-5">
                         <!-- left side -->
                         <div class="col-md-4 col-12 p-3 mb-2 gradient-background rounded align-self-start">
                             <!-- name surname -->
@@ -139,14 +139,73 @@ export default {
                 </div>
 
             <!-- section message -->
-            <div class="container bg-white rounded px-5 mt-4">
+            <div class="container rounded px-5 mt-4">
 
                 <div class="row py-md-5 py-2">
 
-                    <div class="col-md-7 col-12 gradient-background rounded p-5 mb-2">
-
+                <!-- section rew -->
+                    <div class="col-md-7 col-12 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
+                        
                         <form method="post">
 
+                        <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
+
+                            <div class="col-12 mx-auto fw-bold">
+                                <h2>Lascia una recensione</h2>
+                            </div>
+                            
+                            <div class="col-12 d-flex flex-wrap">
+                                <div class="my-2 col-12 me-auto">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nome</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" v-model="this.store.newReview.name">
+                                </div>
+                                    
+                                <div class="my-2 col-12">
+                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email" v-model="this.store.newReview.email">
+                                </div>
+                            </div>
+                        
+                            <div class="col-12 mx-auto">
+                                <div class="my-2">
+                                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Scrivi Recensione</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Aggiungi una recensione.." v-model="this.store.newReview.review"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-2 offset-5 my-2 mx-auto">
+
+                                <button type="button" class="btn btn-primary" @click="store.postReview()">Invia</button>
+
+                            </div>
+
+                        </form>   
+                        <!-- </div> -->
+
+                        <!--valutation index -->
+                        <!-- <div class="col-12 rounded my-2 p-3 mx-auto"> -->
+                            <h2>Valuta la tua esperienza</h2>
+                            <form>
+                            
+                                <select class="form-select" v-model="this.store.newValutation.valutation_id">
+                                    <option disabled value>Select opinion</option>
+                                    <template v-for="item in this.store.ListValutation">
+                                        <option :id="item.id" :value="item.id">{{ item.valutation_name }}</option>
+                                    </template>
+                                    
+            
+                                </select>
+                               
+                                <button type="button" @click="store.postValutation()" class="btn btn-primary my-3">
+                                    Invia
+                                </button>
+                            </form>
+            
+                        <!-- </div> -->
+                    <!-- valutation finish -->
+                    </div>
+                    <div class="col-md-4 offset-md-1 col-12 gradient-background rounded p-5">
+                        <form method="post">
                             <div class="col-12 mx-auto fw-bold">
                                 <h2>Contattami</h2>
                             </div>
@@ -164,12 +223,12 @@ export default {
                             </div>
                             
                             <div class="col-12 mx-auto">
-    
+
                                 <div class="my-2">
                                     <label for="exampleFormControlInput1" class="form-label fw-bold">Indirizzo Email</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci indirizzo mail" v-model="this.store.newComment.email">
                                 </div>
-    
+
                             </div>      
                             
                             <div class="col-12 mx-auto">
@@ -180,94 +239,29 @@ export default {
                             </div>
                             
                             <div class="col-2 mt-5 mx-auto">
-    
+
                                 <button  type="button" @click="store.postMessage()" class="btn btn-primary">Invia</button>
-    
+
                             </div>
 
                         </form>
-                        
-
                     </div>
-                <!-- finish card message -->
-
-                <!-- section rew -->
-                    <div class="col-md-4 col-12 offset-md-1 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
-                        
-                        <form method="post">
-
-                        <!-- <div class="col-12 d-flex flex-wrap mx-auto card px-2"> -->
-
-                            <div class="col-12 mx-auto fw-bold pt-5">
-                                <h2>Lascia una recensione</h2>
-                            </div>
-                            
-                            <div class="col-12 d-flex flex-wrap">
-                                <div class="my-2 col-12 col-md-4 me-auto">
-                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nome</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" v-model="this.store.newReview.name">
-                                </div>
-                                    
-                                <div class="my-2 col-12 col-md-4">
-                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email" v-model="this.store.newReview.email">
-                                </div>
-                            </div>
-                        
-                            <div class="col-12 mx-auto">
-                                <div class="my-2">
-                                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Scrivi Recensione</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Aggiungi una recensione.." v-model="this.store.newReview.review"></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="col-1 my-2 m-auto">
-
-                                <button type="button" class="btn btn-primary" @click="store.postReview()">Invia</button>
-
-                            </div>
-
-                        </form>   
-                        <!-- </div> -->
-
-                    </div>
+<!-- finish card message -->
                 </div>
 
         </div>
             <!-- finish card rew -->
 
 
-            <!--valutation index -->
-            <div class="text-center">
-                <h4>Valuta la tua esperienza</h4>
-                <form>
-                
-                    <select v-model="this.store.newValutation.valutation_id">
-                        <option disabled value>Select opinion</option>
-                        <template v-for="item in this.store.ListValutation">
-                            <option :id="item.id" :value="item.id">{{ item.valutation_name }}</option>
-                        </template>
-                        
-
-                    </select>
-                   
-                    <button type="button" @click="store.postValutation()" class="btn btn-primary">
-                        Invia
-                    </button>
-                </form>
-
-            </div>
-            <!-- valutation finish -->
-
             <!-- carousel for rew -->
             <div class="container p-5">
-                <div class="row">
-                    <h4>Recensioni</h4>
+                <h4>Recensioni</h4>
+                <div class="row my_overflow_x flex-nowrap">
                     <template v-for="(reviews, c) in store.Dev.review">
-                        <div class="col-3 p-5 mx-1 gradient-background h-550 text-center rounded">
+                        <div class="col-md-3 col-12 p-5 mx-1 gradient-background h-550 text-center rounded my_overflow_y">
                             <h6>{{ reviews.name }}</h6>
                             <small>{{ reviews.email }}</small>
-                            <p>{{ reviews.review }}</p>
+                            <p class="">{{ reviews.review }}</p>
                         </div>
                     </template>
                 </div>
@@ -281,9 +275,14 @@ export default {
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
 
-// *{
-//  color: white;
-// }
+.my_overflow_x {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.my_overflow_y {
+    overflow-y: auto;
+}
 .my_ratio{
     aspect-ratio: 1;
    
@@ -308,14 +307,14 @@ export default {
 }
 
 .relative{
-    position: relative;
-    bottom: 350px;
+    position: absolute;
+    top: 150px;
     left: 10%;
     max-height: 300px;
 }
 
 .my_height{
-    height: 400px;
+    max-height: 400px;
     img{
         width: 100%;
         max-height: 100%;
