@@ -34,6 +34,18 @@ export default {
 
 <template>
 
+    <section>
+        <div class="col-10 mx-auto">
+
+            <!--si vede per mezzo secondo durante il collegamento dei dati -->
+            <h3 v-if="store.Loading">Caricamento in corso dei dati</h3>
+
+            <!-- nel caso ci siano errori -->
+            <h3 v-if="store.LoadingError" class="text-danger"> {{ store.LoadingError }} </h3>
+            
+        </div>
+    </section>
+
     <section class="container-fluid bg_allpage gradient-background_container">
 
             <!-- card center -->

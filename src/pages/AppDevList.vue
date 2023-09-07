@@ -56,52 +56,6 @@ export default {
                 </div>
             </div>
 
-            <!-- <div class="row">
-                <template v-for="filtredDev in store.devFiltred" :key="filtredDev">
-                    <div class="col">
-                        
-                        <div class="my_card  m-3">
-
-                            
-                            <b></b>
-                            <div>
-
-                                
-                                <img v-if="filtredDev.img_path == '' || filtredDev.img_path == null"
-                                    src="https://picsum.photos/300/300?random"
-                                    class="img-fluid start rounded-circle border my_border border-5 position"
-                                    alt="{{ filtredDev.name }},{{ filtredDev.surname }}">
-                                <img v-else :src="filtredDev.img_path"
-                                    class="img-fluid rounded-start rounded-circle border my_border border-5 position"
-                                    alt="{{ filtredDev.name }},{{ filtredDev.surname }}">
-
-                                
-                                <div class="text-light position col-12">
-                                    <h5 class="text-center">{{ filtredDev.name }}</h5>
-
-                                    
-                                    <p v-for="language in filtredDev.programming_languages">{{ language.language }}</p>
-
-                                    
-                                    <span class="visually-hidden" v-for="valutation in filtredDev.valutations"
-                                        :key="valutation.id">{{ valutation.valutation }}<br></span>
-
-                                    
-                                    <p> {{ calculateAverage(filtredDev.valutations) }}</p>
-                                </div>
-
-                            </div>
-                            <div class="content">
-
-                                <router-link :to="{ name: 'single-dev', params: { id: filtredDev.id } }">INFO</router-link>
-
-                            </div>
-                        </div>
-                    </div>
-                </template>
-
-            </div> -->
-
         </div>
     </div>
 </template>
