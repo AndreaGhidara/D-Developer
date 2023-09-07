@@ -8,19 +8,19 @@ export default {
 <div id="contatti" class="container-fluid bg_blackOpa">
     <div class="container py-4">
         <div class="row py-2">
-            <div class="col-2">
+            <div class="col-lg-2 col-md-12 d-flex justify-content-center">
                 <a href="#">
                     <img class="logo" src="/d.png" alt="">
                 </a>
             </div>
-            <div class="col-8 d-flex justify-content-around align-items-center">
+            <div class="col-lg-8 col-md-12 d-flex justify-content-around align-items-center flex-md-row flex-column">
                 <a href="" class="link">Chi Siamo</a>
                 <a href="" class="link">FAQ</a>
                 <a href="" class="link">Termini e Condizioni</a>
                 <a href="" class="link">Privacy Policy</a>
                 <a href="" class="link">Contattaci</a>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-12">
                 <div class="row">
                     <div class="col d-flex justify-content-center align-items-center">
                         <button class="btn-cssbuttons">
