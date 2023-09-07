@@ -57,8 +57,11 @@ export default {
                                 <p class="text-truncate">{{item.bio}}</p>
                             </div>
                         </div>
-                        <div class="bg-transparent py-3">
-                            <router-link :to="{name:'single-dev', params: {id: item.id}}" class="btn orange text-white">Visualizza Profilo</router-link>
+                        <div class="py-3">
+                            <button class="button mx-auto">
+                                <span ><router-link :to="{name:'single-dev', params: {id: item.id}}" class="text text-decoration-none">Visualizza</router-link></span>
+                                <div class="wave"></div>
+                            </button>  
                         </div>
                     </div>
                 </div>         
