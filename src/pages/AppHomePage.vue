@@ -41,7 +41,7 @@ export default {
             <div id="chi_siamo" class="container ">
             <div class="row py-5">
                 <div  class="col-lg-4 offset-lg-1 col-12 my_bg text-center p-5 text-white rounded">
-                    <p>Realizza il sito dei tuoi sogni con i nostri esperi web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività. costruiremo insieme il tuo successo sul web.</p>
+                    <p>Realizza il sito dei tuoi sogni con i nostri esperti web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività, costruiremo insieme il tuo successo sul web.</p>
                 </div>
                 <div class="col-md-4 offset-md-2 col-12 d-none d-lg-block">
                     
@@ -53,7 +53,7 @@ export default {
                 <div class="col-md-4 col-12 m-auto rounded-5 text-center text-white bg_blackOpa p-5 d-flex justify-content-center flex-wrap">
                     <h5>Vuoi diventare uno dei nostri professionisti?</h5>
                     <button class="button">
-                        <span class="text">REGISTATI</span>
+                        <span class="text">REGISTRATI</span>
                         <div class="wave"></div>
                     </button>
                 </div>
