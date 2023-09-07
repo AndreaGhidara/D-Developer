@@ -51,12 +51,9 @@ export default {
 
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 
-.h-650{
-  /* height: 550px; */
-  /* object-fit: cover; */
-}
+@use'../style/variable.scss' as*;
 .container-fluid{
   padding: 0 !important;
   margin: 0 !important;
