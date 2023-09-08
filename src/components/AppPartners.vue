@@ -14,16 +14,31 @@ export default{
 
     <div class="row">
         
-        <div class="col-md-8 col-12 m-auto text-center bg_orangeOpa p-5">
+        <div class="col-md-10 col-12 m-auto text-center bg_orangeOpa p-5">
             
             <h4>Hanno collaborato con noi</h4>
             
             <div class="row text-center">
-                <div class="col-md-6 col-12 py-3">
+                <div class="col-12 py-3">
                     <img src="/logoBool.png" alt="" class="img-fluid">
                 </div>
-                <div class="col-md-6 col-12 py-3">
-                    <p>loghi altri progetti</p>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/BDoctors.png" alt="" class="partners">
+                </div>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/BoolB&B5.png" alt="" class="partners">
+                </div>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/BoolB&B6.png" alt="" class="partners">
+                </div>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/BoolMusic.png" alt="" class="partners">
+                </div>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/DeliveBoo.png" alt="" class="partners">
+                </div>
+                <div class="col-2 py-3">
+                    <img src="/src/assets/img_home/myprofblack.png" alt="" class="partners">
                 </div>
             </div>
         </div>
@@ -43,6 +58,11 @@ export default{
     background-image: url(../assets/img_home/cerchioAzz.png);
     background-repeat: no-repeat;
     background-size: 15vw;
-    background-position: 90% 90%;
+    background-position: 100% 90%;
+}
+
+.partners {
+    width: 100px;
+
 }
 </style>
