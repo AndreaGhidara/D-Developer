@@ -100,7 +100,7 @@ export default {
         </div>
     </nav>
     <div class="serchBox w-100 h-50 gradient-background" :class="['search-input', { show: isSearchVisible }]">
-        <AppSearch />
+        <AppSearch  @click="toggleSearch"/>
     </div>
 </template>
 
