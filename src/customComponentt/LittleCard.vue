@@ -25,7 +25,11 @@ export default {
 </script>
 
 <template>
-    <div class="card">
+    <div class="card my-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        
         <b class="text-white">
             <div>
 
@@ -35,7 +39,8 @@ export default {
                 
             </div>
             <div class="name">
-                {{ user.name }}
+                <h4> {{ user.name }}</h4>
+               
             </div>
             <ul class="languages">
                 <tamplate v-for="language in user.programming_languages" :key="language">
@@ -46,12 +51,12 @@ export default {
             </ul>
             <div class="info flex-column">
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <p class="m-0">review</p>
-                    <span class="review">{{ user.review.length }}</span>
+                    <h5 class="m-0">review</h5>
+                    <p class="review">{{ user.review.length }}</p>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <p class="m-0">stars</p>
-                    <span class="stars">{{ store.calculateAverage(user.valutations) }}</span>
+                    <h5 class="m-0">stars</h5>
+                    <p class="stars">{{ store.calculateAverage(user.valutations) }}</p>
                 </div>
             </div>
         </b>
@@ -92,6 +97,58 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+@use'../style/variable.scss' as*;
+
+h5{
+    font-size: medium;
+}
+p{
+    font-size: small;
+}
+h4{
+    color: $my_new_color_1;
+}
+.card span {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  
+  border-radius: 100%;
+  opacity: 0.1;
+  animation: keyframes-rotate-blubs 4s infinite linear;
+}
+
+.card span:nth-child(1) {
+  top: -10%;
+  left: -10%;
+  width: 80px;
+  height: 80px;
+  animation-delay: .1s;
+  opacity: 0.8;
+  background: linear-gradient(90deg, rgba(64,180,255,1) 33%, rgba(73,67,255,1) 100%);
+}
+
+.card span:nth-child(2) {
+  top: 60%;
+  left: -20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: .2s;
+  opacity: 0.8;
+  background: linear-gradient(263deg, rgba(246,108,104,1) 27%, rgba(254,163,94,1) 76%);
+}
+
+.card span:nth-child(3) {
+  top: 30%;
+  left: 60%;
+  animation-delay: .3s;
+  opacity: 0.8;
+  background: linear-gradient(263deg, rgba(246,108,104,1) 27%, rgba(254,163,94,1) 76%);
+}
+
+
+
 b {
     width: 100px;
     height: 100px;
@@ -112,11 +169,12 @@ b {
 
 
     li {
-        background-color: black;
+        background-color: $my_new_color_1;
+        color: $my_10;
         border-radius: 20px;
         font-size: 10px;
-        padding: 0 5px;
-        margin: 2px 2px;
+        padding: 2px 6px;
+        margin: 3px 3px;
     }
 }
 
@@ -124,33 +182,36 @@ b {
     position: relative;
     width: 190px;
     height: 254px;
-    background: #f00;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
 
+  
+    @keyframes keyframes-rotate-blubs {
+  0% {
+    transform: translate(10px) rotate(360deg);
+  }
+
+  50% {
+    transform: translate(-5px, 10px) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(10px) rotate(0deg);
+  }
+}
+
     .info {
         display: flex;
         justify-content: center;
-        background-color: #dca13cc0;
+        background-color: $my_new_color_3;
         border-radius: 5px;
         width: 60px;
         position: absolute;
         top: 0;
         right: -71px;
     }
-}
-
-.card:hover {
-    -webkit-box-shadow: 1px 3px 34px 0px #000000;
-    -moz-box-shadow: 1px 3px 34px 0px #000000;
-    -o-box-shadow: 1px 3px 34px 0px #000000;
-    box-shadow: 1px 3px 34px 0px #000000;
-}
-
-.card::after:hover {
-    filter: blur(20px);
 }
 
 .card::before {
@@ -160,32 +221,34 @@ b {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(315deg, #f49c03, #ffc400);
     border-radius: 10px;
+    border: 2px solid black;
+    z-index: 9;
 }
 
 .card::after {
     content: '';
     width: 100%;
     height: 100%;
-    background: linear-gradient(315deg, #f49c03, #ffc400);
-    filter: blur(10px);
+    background: $my_10;
+    z-index: 9;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
 .card b {
     position: absolute;
     inset: 5px;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-    border-radius: 10px;
+    background: $my_new_color_1;
+    z-index: 10;
+    border-radius: 50%;
 }
 
 .card img {
     z-index: 3;
     scale: 0.8;
     transition: 0.5s;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 
 .card:hover img {
@@ -195,12 +258,11 @@ b {
 
 .card .content {
     position: absolute;
-    z-index: 3;
+    z-index: 11;
     bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: scale(0);
     transition: 0.5s;
     border-radius: 50px;
 }
@@ -208,23 +270,6 @@ b {
 .card:hover .content {
     transform: scale(1);
     bottom: 0;
-}
-
-.content .title {
-    position: relative;
-    color: #fff;
-    font-weight: 500;
-    line-height: 1em;
-    font-size: 1em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: center;
-
-}
-
-.content .title span {
-    font-weight: 300;
-    font-size: 0.70em;
 }
 
 .content .sci {
@@ -250,7 +295,7 @@ b {
     position: relative;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.5);
-    background: rgba(0, 0, 0, 0.2);
+    background: $my_new_color_3;
     fill: currentColor;
     width: 30px;
     height: 30px;
@@ -258,11 +303,11 @@ b {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    transition: 0.5s;
+    // transition: 0.5s;
 }
 
 .sci li a:hover {
     fill: currentColor;
-    color: rgba(255, 255, 255, 1);
+    color: $my_10;
 }
 </style>
