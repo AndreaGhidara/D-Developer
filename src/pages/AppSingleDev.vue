@@ -157,11 +157,7 @@ export default {
                             <p class="me-2 text-secondary"><b>P.iva: </b></p>
                             <p class="me-3 fw-medium">{{ store.Dev.vat_number }}</p>
                         </div>
-                        
-                        <div class="col">
-                            <p class="me-2 text-secondary"><b>P.iva: </b></p>
-                            <p class="me-3 fw-medium">{{ store.Dev.vat_number }}</p>
-                        </div>
+
                         <div class="col">
                             <p class="me-2 text-secondary"><b>Indirizzo: </b></p>
                             <p class="me-3 fw-medium">{{ store.Dev.address }}</p>
