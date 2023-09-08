@@ -157,7 +157,7 @@ export default {
   }
   
   .button:hover {
-    background-color: $my_new_color2;
+    background-color: $my_new_color_2;
     transform: scale(1.1);
   }
 
