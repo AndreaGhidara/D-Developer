@@ -10,30 +10,39 @@ export default{
 </script>
 
 <template>
+    <div class="container pt-4 bg_circle mt-3">
 
-    <div class="row py-5">
+        <div class="row">
         
-        <div class="col-md-4 col-12 m-auto rounded-5 text-center text-white bg_blackOpa p-5 d-flex justify-content-center flex-wrap">
+            <div class="col-md-6 col-9 m-auto rounded-5 text-center text-white my_bg p-md-5 p-3">
             
-            <h5>Vuoi diventare uno dei nostri professionisti?</h5>
+                <h5 class="mb-3">Vuoi diventare uno dei nostri professionisti?</h5>
             
-            <button class="button">
+                <div>
+                    <button class="button m-auto">
                     <span class="text">REGISTRATI</span>
-                    <div class="wave"></div>
-            </button>
-
-        </div>
+                        <div class="wave"></div>
+                    </button>
+                </div>
+            </div>
     
+        </div>
     </div>
-
+    
 </template>
 
 <style lang="scss" scoped>
 
 @use'../style/variable.scss' as*;
 
-.bg_blackOpa {
-    background-color: #00000080;
-    }
+.my_bg{
+    background: linear-gradient(40deg, rgba(246, 108, 104, 1) 0%, rgba(255, 129, 108, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
 
+.bg_circle {
+    background-image: url(../assets/img_home/cerchioAzz.png);
+    background-repeat: no-repeat;
+    background-size: 10vw;
+    background-position: 20% 50%;
+}
 </style>
