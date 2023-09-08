@@ -25,7 +25,7 @@ export default {
 <div id="top_dev" class="container-fluid pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center pb-5 text-white">
+                <div class="col-12 text-center pb-5">
                     <h1>I nostri professionisti in evidenza</h1>
 
                     <!-- nel caso di errore -->
@@ -40,30 +40,30 @@ export default {
 
                         </div>
                     </section>
+                    <!-- fine in caso di errore -->
                 </div>
             </div>
-            <div class="row row-cols-2 row-cols-md-4 g4">
+            <div class="row row-cols-2 row-cols-md-4 g4 pb-4">
                 <!-- cards dei top devs -->
                 <div v-for="item in store.ListDevPage" class="col">
-                    <div class="bg-transparent border-0 text-center">
-                        <!-- immagine profilo -->
-                        <div class="flip">
-                            <div class="front">
-                                <img v-if="item.img_path" src="{{ item.img_path }}" class="card-img-top" alt="...">
-                                <img v-else src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border border-5" alt="{{item.name}}">
-                            </div>
-                            <div class="back rounded-circle border border-5 text-center py-5 px-3">
-                                <h5>{{item.name}} {{ item.surname }}</h5>
-                                <p class="text-truncate">{{item.bio}}</p>
-                            </div>
+
+                    <!-- nuova card index -->
+
+                    <div class="card">
+                        
+                        <img v-if="item.img_path" src="{{ item.img_path }}" class="image" alt="{{item.name}}">
+                        <img v-else src="https://picsum.photos/300/300?random" class="image" alt="{{item.name}}">
+
+                        <div class="card-info">
+                            <h4> {{item.name}} </h4>
+                            <h5> {{ item.surname }} </h5>
                         </div>
-                        <div class="py-3">
-                            <button class="button mx-auto">
-                                <span ><router-link :to="{name:'single-dev', params: {id: item.id}}" class="text text-decoration-none">Visualizza</router-link></span>
-                                <div class="wave"></div>
-                            </button>  
-                        </div>
+                        
+                        <router-link :to="{name:'single-dev', params: {id: item.id}}" class="button">Info</router-link>
                     </div>
+
+                    <!-- finish nuova card -->
+
                 </div>         
             </div>
         </div>
@@ -73,53 +73,92 @@ export default {
 
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
-.orange {
-    background-color: $my_primary;
-}
-.flip {
-    position: relative;
-    >.front,
-    >.back {
-        display: block;
-        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
-        transition-duration: .5s;
-        transition-property: transform, opacity;
-    }
-    >.front {
-        transform: rotateY(0deg);
-    }
-    >.back {
-        position: absolute;
-        opacity: 0;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        transform: rotateY(-180deg);
-    }
-    &:hover {
-        >.front {
-            transform: rotateY(180deg);
-        }
-        >.back {
-            opacity: 1;
-            transform: rotateY(0deg);
-        }
-    }
-}
 
-.flip {
+
+.card {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background: linear-gradient(40deg, rgba(246,108,104,1) 0%, rgba(255,129,108,1) 50%, rgba(252,176,69,1) 100%);
+    border-radius: 50%;
     position: relative;
-    display: inline-block;
-    >.front,
-    >.back {
-      display: block;
-      color: white;
-      background-size: cover!important;
-      background-position: center!important;
-      background: $my_primary;
-      border-radius: 50%;
-    }
-}
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: "";
+    width: 350px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+  }
+  
+  .card * {
+    z-index: 1;
+  }
+  
+  .image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid $my_10;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+  }
+  
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  .card-info h4 {
+    font-weight: 600;
+    font-size: 24px;
+    color: $my_text_dark ;
+    margin-top: 15px;
+    line-height: 5px;
+  }
+  
+  .card-info h5 {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .button {
+    text-decoration: none;
+    background-color: $my_primary;
+    color: $my_10;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid $my_10;
+    transition: all 0.5s ease;
+    margin-top: 10px
+  }
+  
+  .card:hover::before {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .card:hover .card-info {
+    transform: translate(0%,+10%);
+  }
+  
+  .card:hover .image {
+    transform: scale(1.5) translate(-0%,-10%);
+  }
+  
+  .button:hover {
+    background-color: $my_new_color2;
+    transform: scale(1.1);
+  }
 
 </style>
