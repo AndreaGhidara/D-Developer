@@ -11,13 +11,19 @@ export default{
 
 <template>
 
-<div class="container-fluid bg_allpage">
+<div class="container-fluid bg_allpage py-5">
     <div id="" class="row py-5">
-        <div class="col-md-4 offset-md-2 d-none d-lg-block p-5">    
-            <img src="../assets/img_home/AppSectionTop.webp" alt="" class="img-fluid rounded">
+        <div class="col-md-2 bg_square py-5">
+
         </div>
-        <div  class="col-lg-4 offset-lg-1 col-12 text-center py-3 my-auto text-white rounded">
-            <p>Realizza il sito dei tuoi sogni con i nostri esperti web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività, costruiremo insieme il tuo successo sul web.</p>
+        <div class="col-md-4 py-md-5 py-5">    
+            <img src="../assets/img_home/AppSectionTop.webp" alt="" class="img-fluid rounded px-5">
+        </div>
+        <div  class="col-lg-4 col-12 text-center px-5 my-auto text-white rounded">
+            <p>La nostra azienda valorizza profondamente i suoi sviluppatori, garantendo un ambiente di lavoro che promuove il rispetto e l'autonomia. Forniamo spazi creativi, supporto costante e opportunità di crescita professionale, dimostrando il nostro impegno verso il benessere e lo sviluppo dei nostri talenti tecnici.</p>
+        </div>
+        <div class="col-md-2 bg_circle py-5">
+
         </div>
     </div>
 </div>
@@ -35,4 +41,19 @@ export default{
     background-repeat: no-repeat;
 }
 
+.bg_circle {
+    background-image: url(../assets/img_home/cerchioPuntinato.png);
+    background-repeat: no-repeat;
+    filter: brightness(100) contrast(1);
+    background-size: 50%;
+    background-position: 0% 20%;
+}
+
+.bg_square {
+    background-image: url(../assets/img_home/quadrato.png);
+    background-repeat: no-repeat;
+    filter: brightness(100) contrast(1);
+    background-size: 50%;
+    background-position: 100% 80%;
+}
 </style>
