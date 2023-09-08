@@ -11,20 +11,22 @@ export default{
 
 <template>
 <div class="container-fluid bg_allpage py-5">
-
     <div id="chi_siamo" class="row pt-5 mt-5">
-        
-        <div  class="col-lg-4 offset-lg-1 col-12 text-center p-5 text-white rounded my-auto">
+        <div class="col-md-2 bg_circle py-5">
+            
+        </div>
+        <div  class="col-md-4 col-12 text-center px-5 my-auto text-white rounded my-auto">
             <p>Realizza il sito dei tuoi sogni con i nostri esperti web developer! Siamo qui per trasformare la tua visione in una presenza online straordinaria. Con competenza e creatività, costruiremo insieme il tuo successo sul web.</p>
         </div>
-        
-        <div class="col-md-4 offset-md-2 d-none d-lg-block mt-5">
+        <div class="col-md-4 py-md-5 py-5">
             
-            <img src="../assets/img_home/SectionTwoCard.jpg" alt="" class="img-fluid rounded">
+            <img src="../assets/img_home/SectionTwoCard.jpg" alt="" class="img-fluid rounded px-5">
+            
+        </div>
+        <div class="col-md-2 bg_square py-5">
             
         </div>
     </div>
-    
 </div>
 
 </template>
@@ -40,4 +42,19 @@ export default{
    
 }
 
+.bg_circle {
+    background-image: url(../assets/img_home/cerchioPuntinato.png);
+    background-repeat: no-repeat;
+    filter: brightness(100) contrast(1);
+    background-size: 50%;
+    background-position: 100% 10%;
+}
+
+.bg_square {
+    background-image: url(../assets/img_home/quadrato.png);
+    background-repeat: no-repeat;
+    filter: brightness(100) contrast(1);
+    background-size: 50%;
+    background-position: -10% 100%;
+}
 </style>
