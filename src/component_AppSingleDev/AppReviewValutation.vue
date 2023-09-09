@@ -15,7 +15,8 @@ export default {
 </script>
 
 <template>
-    <div class="col-md-7 col-12 py-md-5 py-2 px-5 mt-4 mt-md-0 gradient-background rounded">
+<div class="row">
+    <div class="col-12 py-2 px-5 mt-4">
 
         <form method="post">
 
@@ -25,13 +26,13 @@ export default {
 
             <div class="col-12 d-flex flex-wrap">
                 <div class="my-2 col-12 me-auto">
-                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nome</label>
+                    <label for="exampleFormControlInput1" class="text-secondary form-label fw-bold">Nome</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome"
                         v-model="this.store.newReview.name">
                 </div>
 
                 <div class="my-2 col-12">
-                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
+                    <label for="exampleFormControlInput1" class="text-secondary form-label fw-bold">Indirizo Email</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1"
                         placeholder="Inserisci la tua email" v-model="this.store.newReview.email">
                 </div>
@@ -39,7 +40,7 @@ export default {
 
             <div class="col-12 mx-auto">
                 <div class="my-2">
-                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Scrivi
+                    <label for="exampleFormControlTextarea1" class="text-secondary form-label fw-bold">Scrivi
                         Recensione</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                         placeholder="Aggiungi una recensione.." v-model="this.store.newReview.review"></textarea>
@@ -48,7 +49,10 @@ export default {
 
             <div class="col-2 offset-5 my-2 mx-auto">
 
-                <button type="button" class="btn btn-primary" @click="store.postReview()">Invia</button>
+                <button type="button" class="button" @click="store.postReview()">
+                    <span class="text">Invia</span>
+                    <div class="wave"></div>
+                </button>
 
             </div>
 
@@ -65,18 +69,35 @@ export default {
                 <template v-for="item in this.store.ListValutation">
                     <option :id="item.id" :value="item.id">{{ item.valutation_name }}</option>
                 </template>
-
-
             </select>
 
-            <button type="button" @click="store.postValutation()" class="btn btn-primary my-3">
-                Invia
-            </button>
+            <div class="col-2 offset-5 my-2 mx-auto">
+                <button type="button" @click="store.postValutation()" class="button my-3">
+                    <span class="text">Invia</span>
+                    <div class="wave"></div>
+                </button>
+            </div>
+
         </form>
 
 
         <!-- valutation finish -->
     </div>
+</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+    input,textarea,select,option{
+        border: none;
+        border-bottom: 1px solid #FCB457;
+        border-radius: 0;
+        outline: none;
+        box-shadow: none!important
+    }
+
+    h2{
+        color: #40B4FF;
+    }
+
+</style>

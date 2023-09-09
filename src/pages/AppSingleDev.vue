@@ -45,10 +45,12 @@ export default {
 
 <template>
     
-    <section class="container-fluid ">
+        <div class="container-fluid ">
 
-        <!--top jumbo  -->
-        <AppJumbo />
+            <!--top jumbo  -->
+            <AppJumbo />
+
+        </div>
 
         <!-- conntainer big for section left e right -->
         <div class="container-fluid my_img-up">
@@ -74,13 +76,44 @@ export default {
 
             <div class="row py-md-5 py-2">
 
-                <!-- componente per recensione e valutazione -->
+                <!-- inizio dropdown recensione e valutazione-->
+                <p class="d-inline-flex gap-1">
 
-                <AppReviewValutation/>
+                    <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#review" aria-expanded="false" aria-controls="review">
+                        <span class="text">Lascia una recensione</span>
+                        <div class="wave"></div>
+                    </button>
 
-                <!--componente x messaggio -->
+                </p>
+                <div class="collapse" id="review">
+                    <div class="card card-body border-0">
+
+                        <!-- componente per recensione e valutazione -->
+                        <AppReviewValutation/>
+
+                    </div>
+                </div>
+                <!-- fine dropdown recensione e valutazione -->
+
+                <!-- inizio dropdown messaggi-->
+                <p class="d-inline-flex gap-1">
+
+                    <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#messages" aria-expanded="false" aria-controls="messages">
+                        <span class="text">Manda un messaggio</span>
+                        <div class="wave"></div>
+                    </button>
+
+                </p>
+                <div class="collapse" id="messages">
+                    <div class="card card-body border-0">
+                    
+                        <!--componente x messaggio -->
+                        <AppSectionMessage />
+                    
+                    </div>
+                </div>
+                <!-- inizio dropdown messaggi-->
                 
-                <AppSectionMessage />
                
             </div>
 
@@ -90,7 +123,6 @@ export default {
         <!-- carosello recensioni -->
         <AppCarosel :array="store.Dev.review"/>
 
-    </section>
 </template>
 
 <style lang="scss" scoped>
