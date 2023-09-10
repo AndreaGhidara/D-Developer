@@ -2,13 +2,13 @@
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 
-import {store} from './data/store'
+import { store } from './data/store'
 
 export default {
   components: {
     AppHeader,
     AppFooter,
-},
+  },
   data() {
     return {
       store,
@@ -16,10 +16,10 @@ export default {
     }
   },
   methods: {
-    
+
   },
   mounted() {
-    
+
   },
 }
 </script>
@@ -29,23 +29,22 @@ export default {
   <AppHeader />
   <!-- Router -->
   <router-view>
-    
+
   </router-view>
 
   <AppFooter />
-
 </template>
 
 <style lang="scss" >
- @use'./style/variable.scss' as*;
+@use'./style/variable.scss' as*;
 
- * {
+* {
   scrollbar-width: auto;
   scrollbar-color: $my_primary;
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 *::-webkit-scrollbar-track {

@@ -7,6 +7,7 @@ import AppSectionTop from '../components/AppSectionTop.vue';
 import SectionTwoCard from '../components/SectionTwoCard.vue';
 import Register from '../components/Register.vue';
 import AppPartners from '../components/AppPartners.vue';
+import AppCarouselSwiper from '../components/AppCarouselSwiper.vue';
 export default {
     components: {
     TopDevs,
@@ -15,7 +16,8 @@ export default {
     AppSectionTop,
     SectionTwoCard,
     Register,
-    AppPartners
+    AppPartners,
+    AppCarouselSwiper,
 },
     data() {
         return {
@@ -37,7 +39,7 @@ export default {
     <div class="container-fluid hidden p-0">
             
         <!-- carosel -->
-            
+        <AppCarouselSwiper />
         <Carousels/>
             
         <!-- section top -->
