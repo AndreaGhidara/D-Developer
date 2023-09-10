@@ -3,8 +3,10 @@
 export default{
     name:"Resgister",
     data(){
-
-    }
+        return{
+            
+        }
+    },
 }
 
 </script>
@@ -20,7 +22,9 @@ export default{
             
                 <div>
                     <button class="button m-auto">
-                    <span class="text">REGISTRATI</span>
+                    <a href="http://127.0.0.1:8000/register" class="text">
+                        REGISTRATI
+                    </a>
                         <div class="wave"></div>
                     </button>
                 </div>

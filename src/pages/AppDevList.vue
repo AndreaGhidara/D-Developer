@@ -1,17 +1,18 @@
 <script>
-import { store } from '../data/store'
+import { store } from '../data/store';
 
 import LittleCard from '../customComponentt/LittleCard.vue';
+import AppSearch from '../customComponentt/AppSearch.vue';
 
 export default {
     name: "AppDevList",
     components: {
         LittleCard,
+        AppSearch
     },
     data() {
         return {
             store,
-         
         }
     },
     methods: {
@@ -25,14 +26,16 @@ export default {
 
 <template >
     <div>
-
-        <div class="container-fluid py-5">
+        <div class="container-fluid mt-5 py-5">
 
             <div class="row">
 
-                <div class="col-10 mx-auto text-center">
+                <div class="col-12 text-center">
 
-                    <h1 >Elenco Dev</h1>
+                    <h1>Elenco Dev</h1>
+                    <div>
+                        <AppSearch />
+                    </div>
 
                     <div class="col-10 mx-auto">
 
@@ -48,11 +51,11 @@ export default {
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                <template v-for="dev in store.devFiltred" :key="dev">
-                    <div class="col-lg-3 col-sm-6 col-12 p-3">
-                        <LittleCard :user="dev" class="m-auto"/>
-                    </div>
-                </template>
+                    <template v-for="dev in store.devFiltred" :key="dev">
+                        <div class="col-lg-3 col-sm-6 col-12 p-3">
+                            <LittleCard :user="dev" class="m-auto" />
+                        </div>
+                    </template>
                 </div>
             </div>
 
@@ -62,7 +65,4 @@ export default {
 
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
-
-
-
 </style>

@@ -39,8 +39,12 @@ export default {
     <div class="container-fluid hidden p-0">
             
         <!-- carosel -->
-        <AppCarouselSwiper />
-        <Carousels/>
+        <div class="d-none d-md-block">
+            <AppCarouselSwiper />
+        </div>
+        <div class="d-md-none">
+            <Carousels/>
+        </div>
             
         <!-- section top -->
             

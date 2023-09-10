@@ -2,7 +2,7 @@
 import { store } from '../data/store'
 
 export default {
-    name: 'LittleCheck',
+    name: 'LittleCard',
     components: {
 
     },
@@ -25,29 +25,29 @@ export default {
 </script>
 
 <template>
-    <div class="card my-4">
+    <div class="card my-4 coverGlass">
         <span></span>
         <span></span>
         <span></span>
-        
-        <b class="text-white">
+
+        <b class="text-white ">
             <div>
 
                 <img v-if="user.img_path" :src="this.store.imgApi + user.img_path" alt="">
                 <img v-else class="img-fluid object-fit-cover" src="https://picsum.photos/300/300?random" alt="">
 
-                
+
             </div>
             <div class="name">
                 <h4> {{ user.name }}</h4>
-            
+
             </div>
             <ul class="languages">
-                <tamplate v-for="language in user.programming_languages" :key="language">
+                <template v-for="language in user.programming_languages" :key="language">
                     <li>
                         {{ language.language }}
                     </li>
-                </tamplate>
+                </template>
             </ul>
             <div class="info flex-column">
                 <div class="d-flex flex-column justify-content-center align-items-center">
@@ -60,7 +60,7 @@ export default {
                 </div>
             </div>
         </b>
-        <div class="content">
+        <div class="content coverGlass">
             <ul class="sci">
                 <li class="me-5">
                     <router-link :to="{ name: 'single-dev', params: { id: user.id } }">
@@ -97,54 +97,56 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 @use'../style/variable.scss' as*;
 
-h5{
+h5 {
     font-size: medium;
 }
-p{
+
+p {
     font-size: small;
 }
-h4{
+
+h4 {
     color: $my_new_color_1;
 }
+
 .card span {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  
-  border-radius: 100%;
-  opacity: 0.1;
-  animation: keyframes-rotate-blubs 4s infinite linear;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+
+    border-radius: 100%;
+    opacity: 0.1;
+    animation: keyframes-rotate-blubs 4s infinite linear;
 }
 
 .card span:nth-child(1) {
-  top: -10%;
-  left: -10%;
-  width: 80px;
-  height: 80px;
-  animation-delay: .1s;
-  opacity: 0.8;
-  background: linear-gradient(90deg, rgba(64,180,255,1) 33%, rgba(73,67,255,1) 100%);
+    top: -10%;
+    left: -10%;
+    width: 80px;
+    height: 80px;
+    animation-delay: .1s;
+    opacity: 0.8;
+    background: linear-gradient(90deg, rgba(64, 180, 255, 1) 33%, rgba(73, 67, 255, 1) 100%);
 }
 
 .card span:nth-child(2) {
-  top: 60%;
-  left: -20%;
-  width: 80px;
-  height: 80px;
-  animation-delay: .2s;
-  opacity: 0.8;
-  background: linear-gradient(263deg, rgba(246,108,104,1) 27%, rgba(254,163,94,1) 76%);
+    top: 60%;
+    left: -20%;
+    width: 80px;
+    height: 80px;
+    animation-delay: .2s;
+    opacity: 0.8;
+    background: linear-gradient(263deg, rgba(246, 108, 104, 1) 27%, rgba(254, 163, 94, 1) 76%);
 }
 
 .card span:nth-child(3) {
-  top: 30%;
-  left: 60%;
-  animation-delay: .3s;
-  opacity: 0.8;
-  background: linear-gradient(263deg, rgba(246,108,104,1) 27%, rgba(254,163,94,1) 76%);
+    top: 30%;
+    left: 60%;
+    animation-delay: .3s;
+    opacity: 0.8;
+    background: linear-gradient(263deg, rgba(246, 108, 104, 1) 27%, rgba(254, 163, 94, 1) 76%);
 }
 
 
@@ -187,20 +189,20 @@ b {
     align-items: center;
     border-radius: 10px;
 
-  
+
     @keyframes keyframes-rotate-blubs {
-  0% {
-    transform: translate(10px) rotate(360deg);
-  }
+        0% {
+            transform: translate(10px) rotate(360deg);
+        }
 
-  50% {
-    transform: translate(-5px, 10px) rotate(180deg);
-  }
+        50% {
+            transform: translate(-5px, 10px) rotate(180deg);
+        }
 
-  100% {
-    transform: translate(10px) rotate(0deg);
-  }
-}
+        100% {
+            transform: translate(10px) rotate(0deg);
+        }
+    }
 
     .info {
         display: flex;
@@ -214,27 +216,26 @@ b {
     }
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border: 2px solid black;
-    z-index: 9;
-}
+// .card::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 10px;
+//     border: 2px solid black;
+//     z-index: 9;
+// }
 
-.card::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: $my_10;
-    z-index: 9;
-    border-radius: 10px;
-    border: 2px solid black;
-}
+// .card::after {
+//     content: '';
+//     width: 100%;
+//     height: 100%;
+//     z-index: 9;
+//     border-radius: 10px;
+//     border: 2px solid black;
+// }
 
 .card b {
     position: absolute;

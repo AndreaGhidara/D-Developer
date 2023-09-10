@@ -3,8 +3,10 @@
 export default{
     name:"SectionTwoCard",
     data(){
-
-    }
+        return{
+            
+        }
+    },
 }
 
 </script>

@@ -19,8 +19,7 @@ export default {
 
 <template>
     <div>
-        <h1>Review:</h1>
-        <div class="radio-buttons">
+        <!-- <div class="radio-buttons">
             <label class="radio-button">
                 <input type="radio" name="optionReview" value="<10" v-model="store.serchAverage">
                 <div class="radio-circle"></div>
@@ -36,77 +35,61 @@ export default {
                 <div class="radio-circle"></div>
                 <span class="radio-label">&#62;50 </span>
             </label>
+        </div> -->
+        <div class="radio-inputs coverGlass">
+            <label class="radio">
+                <input type="radio" name="radio" checked="">
+                <span class="name"> &#60; 10</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="radio">
+                <span class="name">10 | 50</span>
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="radio">
+                <span class="name"> &#62; 50 </span>
+            </label>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.radio-buttons {
+.radio-inputs {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    color: white;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 200px;
+    font-size: 14px;
 }
 
-.radio-button {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    cursor: pointer;
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
 }
 
-.radio-button input[type="radio"] {
+.radio-inputs .radio input {
     display: none;
 }
 
-.radio-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #aaa;
-    position: relative;
-    margin-right: 10px;
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
 }
 
-.radio-circle::before {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ddd;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: all 0.2s ease-in-out;
-}
-
-.radio-button input[type="radio"]:checked+.radio-circle::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.radio-button:nth-of-type(1) input[type="radio"]:checked+.radio-circle::before {
-    background-color: #ff6600;
-}
-
-.radio-button:nth-of-type(2) input[type="radio"]:checked+.radio-circle::before {
-    background-color: #ffffff;
-}
-
-.radio-button:nth-of-type(3) input[type="radio"]:checked+.radio-circle::before {
-    background-color: #26be00;
-}
-
-.radio-label {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.radio-button:hover .radio-circle {
-    border-color: #555;
-}
-
-.radio-button:hover input[type="radio"]:checked+.radio-circle::before {
-    background-color: #555;
+.radio-inputs .radio input:checked+.name {
+    background-color: #fff;
+    font-weight: 600;
 }
 </style>

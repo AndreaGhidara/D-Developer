@@ -3,8 +3,10 @@
 export default{
     name:"AppPartners",
     data(){
-
-    }
+        return{
+            
+        }
+    },
 }
 
 </script>

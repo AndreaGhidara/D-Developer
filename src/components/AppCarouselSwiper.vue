@@ -37,19 +37,19 @@ export default {
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
                     <img src="public/carousel-slide-1.png" alt="img">
-                    <h1 class="textSlide1 ">Affidati alla nostra rete</h1>
+                    <h1 class="textSlide1 textSlide">Affidati alla nostra rete</h1>
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
                     <img src="public/carousel-slide-2.png" alt="img">
-                    <h1 class="textSlide2 ">Raggiungi i tuoi obbiettivi</h1>
+                    <h1 class="textSlide2 textSlide">Raggiungi i tuoi obbiettivi</h1>
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
                     <img src="public/carousel-slide-3.png" alt="img">
-                    <h1 class="textSlide3 ">Comodamente ovunque tu sia</h1>
+                    <h1 class="textSlide3 textSlide">Comodamente ovunque tu sia</h1>
                 </div>
             </swiper-slide>
         </swiper>
@@ -67,6 +67,7 @@ html,
 body {
     position: relative;
     height: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 body {
@@ -94,14 +95,14 @@ body {
     align-items: center;
 }
 
-// .containerImgCarouselSlide{
-//     position: relative;
+.containerImgCarouselSlide {
+    position: relative;
 
-//     .textSlide{
-//         position: absolute;
+    .textSlide {
+        position: absolute;
 
-//     }
-// }
+    }
+}
 
 .swiper-slide img {
     display: block;
@@ -115,19 +116,22 @@ body {
     margin-right: auto;
 }
 
-.textSlide1{
+.textSlide1 {
     position: absolute;
-    top: 164px;
-    right: 284px;
+    top: 30%;
+    right: 20%;
 }
-.textSlide2{
+
+.textSlide2 {
     position: absolute;
-    top: 183px;
+    bottom: 30%;
     right: 352px;
 }
-.textSlide3{
+
+.textSlide3 {
     position: absolute;
     top: 165px;
     right: 227px;
 }
+
 </style>

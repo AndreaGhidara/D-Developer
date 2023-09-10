@@ -3,8 +3,10 @@
 export default{
     name:"AppSectionTop",
     data(){
-
-    }
+        return{
+            
+        }
+    },
 }
 
 </script>

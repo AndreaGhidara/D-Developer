@@ -9,7 +9,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect:'/home'
+            redirect: '/home'
         },
         {
             path: '/home',
@@ -26,6 +26,19 @@ const router = createRouter({
             name: 'single-dev',
             component: AppSingleDev
         },
-    ]
+        {
+            path: '/backend-home',
+            beforeEnter() {
+                window.location.href = 'http://127.0.0.1:8000'; // Sostituisci con l'URL effettivo del tuo backend Laravel
+            },
+        },
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        if (to.hash) {
+            return { selector: to.hash, behavior: 'smooth' };
+        } else {
+            return { x: 0, y: 0 };
+        }
+    }
 });
 export { router };

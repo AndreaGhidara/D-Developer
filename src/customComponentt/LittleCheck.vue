@@ -17,70 +17,57 @@ export default {
     methods: {
     },
     mounted() {
-        
+
     },
 };
 
 </script>
 
 <template>
-    <div class="w-100">
-        <div class="checkbox-wrapper  ">
-            <input :id='languageObj.id' :value='languageObj.language' class="check" type="checkbox" v-model="store.serchLanguage">
-            <label class="label" :for='languageObj.id'>
-                <svg viewBox="0 0 95 95" height="45" width="45">
-                    <rect fill="none" stroke="black" height="50" width="50" y="20" x="30"></rect>
-                    <g transform="translate(0,-952.36222)">
-                        <path class="path1" fill="none" stroke-width="3" stroke="black"
-                            d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4">
-                        </path>
-                    </g>
-                </svg>
-                <span>{{ languageObj.language }}</span>
-            </label>
-        </div>
-    </div>
+    <label class="d-flex align-items-center p-1 my-1" :for='languageObj.id'>
+        <input :id='languageObj.id' :value='languageObj.language' class="input" type="checkbox"
+                v-model="store.serchLanguage">
+        <span class="custom-checkbox"></span>
+        <p class="m-0 ps-2">
+            {{ languageObj.language }}
+        </p>
+    </label>
 </template>
 
 <style lang="scss" scoped>
-.checkbox-wrapper input[type="checkbox"] {
-    visibility: hidden;
+/* Hide the default checkbox */
+.input[type="checkbox"] {
     display: none;
 }
 
-.checkbox-wrapper *,
-.checkbox-wrapper ::after,
-.checkbox-wrapper ::before {
-    box-sizing: border-box;
-}
 
-.checkbox-wrapper {
+/* Style for the custom checkbox */
+.custom-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
     position: relative;
-    display: flex;
-    overflow: hidden;
-    width: 100%;
+    cursor: pointer;
 }
 
-.checkbox-wrapper .check {
-    width: 50px;
-    height: 50px;
+/* Style for the custom checkmark */
+.custom-checkbox::after {
+    content: "";
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #44aaff;;
+    border-radius: 2px;
     opacity: 0;
 }
 
-.checkbox-wrapper .label svg {
-    vertical-align: middle;
-}
-
-.checkbox-wrapper .path1 {
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    transition: .5s stroke-dashoffset;
-    opacity: 0;
-}
-
-.checkbox-wrapper .check:checked+label svg g path {
-    stroke-dashoffset: 0;
+/* Show the checkmark when checkbox is checked */
+.input[type="checkbox"]:checked+.custom-checkbox::after {
     opacity: 1;
 }
 </style>

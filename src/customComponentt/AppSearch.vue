@@ -35,28 +35,34 @@ export default {
 </script>
     
 <template>
-    <div>
-        <form class="w-100">
-            <div class="row m-0">
-                <div class="col-12 p-0">
-                    <h4 class="ps-4">Linguaggi:</h4>
+    <div class="gradient-background container p-0 rounded-2">
+        <form class="w-100 p-3">
+            <div class="row d-flex justify-content-start m-0 py-2">
+                <div class="d-inline-flex p-0">
+                    <h4 class="p-2 coverGlass">Linguaggi:</h4>
                 </div>
             </div>
-            <div class="row m-0 mx-3 rounded-2">
+            <div class="row m-0 coverGlass rounded-2">
                 <template v-for="item in store.ListLanguages" :key="item">
-                    <div class="col-6 col-md-3">
+                    <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start">
                         <LittleCheck :languageObj="item" />
                     </div>
                 </template>
             </div>
             <div class="row m-0">
-                <div class="col-12 col-lg-6 p-3">
-                    <div class="p-3 rounded-2">
+                <div class="col-12 col-md-6 py-3 px-0">
+                    <div class="text-start ">
+                        <p class="d-inline-flex coverGlass p-2">Recensioni</p>
+                    </div>
+                    <div class="rounded-2">
                         <LittleRadio />
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center p-3">
-                    <div class="p-3 bg-black rounded-2">
+                <div class="col-12 col-md-6 d-flex flex-column align-items-end justify-content-between p-0 py-3">
+                    <p class="coverGlass p-2 m-0">
+                        Valutazioni
+                    </p>
+                    <div class="p-2 mt-3 coverGlass rounded-2 d-inline-flex ">
                         <LittleStars />
                     </div>
                 </div>
@@ -71,6 +77,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
 .radio-buttons {
     display: flex;
     flex-direction: column;
