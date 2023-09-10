@@ -31,22 +31,26 @@ export default {
 
 <template>
     <div class="my-5 w-100 p-0 m-0">
-        <swiper :initialSlide='5' :speed='300'  :spaceBetween="30" :centeredSlides="true" :autoplay="{
-            delay: 3000,
-            disableOnInteraction: false,
-        }" :pagination="{
-    clickable: true,
-}" :navigation="true" :modules="modules" class="mySwiper">
-            <swiper-slide >
-                <div class="">
-                    <img src="src/assets/img_home/carouselSlide-1.png" alt="img">
+        <swiper :scrollbar="{
+            hide: true,
+        }" :modules="modules" :loop="true" class="mySwiper">
+            <swiper-slide>
+                <div class="containerImgCarouselSlide position-relative">
+                    <img src="public/carousel-slide-1.png" alt="img">
+                    <h1 class="textSlide1 ">Affidati alla nostra rete</h1>
                 </div>
             </swiper-slide>
             <swiper-slide>
-                <img src="src/assets/img_home/carouselSlide-2.png" alt="img">
+                <div class="containerImgCarouselSlide position-relative">
+                    <img src="public/carousel-slide-2.png" alt="img">
+                    <h1 class="textSlide2 ">Raggiungi i tuoi obbiettivi</h1>
+                </div>
             </swiper-slide>
             <swiper-slide>
-                <img src="src/assets/img_home/carouselSlide-3.png" alt="img">
+                <div class="containerImgCarouselSlide position-relative">
+                    <img src="public/carousel-slide-3.png" alt="img">
+                    <h1 class="textSlide3 ">Comodamente ovunque tu sia</h1>
+                </div>
             </swiper-slide>
         </swiper>
     </div>
@@ -90,6 +94,15 @@ body {
     align-items: center;
 }
 
+// .containerImgCarouselSlide{
+//     position: relative;
+
+//     .textSlide{
+//         position: absolute;
+
+//     }
+// }
+
 .swiper-slide img {
     display: block;
     width: 100%;
@@ -100,5 +113,21 @@ body {
 .swiper {
     margin-left: auto;
     margin-right: auto;
+}
+
+.textSlide1{
+    position: absolute;
+    top: 164px;
+    right: 284px;
+}
+.textSlide2{
+    position: absolute;
+    top: 183px;
+    right: 352px;
+}
+.textSlide3{
+    position: absolute;
+    top: 165px;
+    right: 227px;
 }
 </style>
