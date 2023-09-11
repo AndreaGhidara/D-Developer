@@ -21,22 +21,22 @@ export default {
 
 <template>
     <div class="testoContainer">
-        <div class="row  justify-content-between p-4">
-            <div class="col-5 p-2 mb-4 h-100 coverGlass">
+        <div class="row gap-5 justify-content-center flex-wrap align-items-center px-2 mx-2">
+            <div class="col-12 col-sm-5 p-2 h-100 coverGlass">
                 <div>
-                    <h2>
+                    <h2 class="fw-bold">
                         " Trova il Developer Giusto per il Tuo Progetto "
                     </h2>
                     <p class="fs-4">
                         Sei alla ricerca di un developer con competenze specifiche in vari linguaggi di programmazione?
                         Siamo qui per aiutarti! Il nostro servizio ti consente di connetterti con sviluppatori esperti in
-                        una vasta gamma di linguaggi, dal JavaScript al Python, passando per il Java e molti altri. Trova il
+                        una vasta gamma di linguaggi, dal <span class="text-warning">JavaScript</span> al  <span class="text-primary">Python</span>, passando per il <span class="text-danger">Java</span> e molti altri. Trova il
                         partner perfetto per il tuo progetto oggi stesso.
                     </p>
                 </div>
             </div>
-            <div class="col-5 h-100 coverGlass p-2">
-                <h2>
+            <div class="col-12 col-sm-5 h-100 coverGlass p-2">
+                <h2 class="fw-bold">
                     " Sviluppatori Talentuosi"
                 </h2>
                 <p class="fs-4">
@@ -56,5 +56,4 @@ export default {
 .testoContainer {
     width: 100%;
     height: 30rem;
-    background-color: rgb(246, 108, 104);
 }</style>
