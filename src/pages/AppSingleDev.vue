@@ -10,7 +10,6 @@ import AppSectionMessage from '../component_AppSingleDev/AppSectionMessage.vue';
 
 export default {
     name: "AppSingleDev",
-   
     components: {
         AppJumbo,
         AppSectionLeft,
@@ -44,95 +43,82 @@ export default {
 </script>
 
 <template>
-    
-        <div class="container-fluid ">
+    <div class="container-fluid pt-5 mt-5 px-0">
 
-            <!--top jumbo  -->
-            <AppJumbo />
+        <!--top jumbo  -->
+        <AppJumbo />
 
-        </div>
+    </div>
 
-        <!-- conntainer big for section left e right -->
-        <div class="container-fluid my_img-up">
-            
-            <div class="container rounded px-5">
-                
-                <div class="row py-5">
+    <!-- conntainer big for section left e right -->
+    <div class="container-fluid my_img-up mt-5">
 
-                    <!-- left side -->
-                    <AppSectionLeft/>
+        <div class="container rounded">
 
-                    <!-- right side -->
-                    <AppSectionRight/>
-                    
+            <div class="row py-5">
+
+                <!-- left side -->
+                <div class="col-12">
+                    <AppSectionLeft />
                 </div>
-                
+
+                <!-- right side -->
+                <div class="col-12 d-flex justify-content-center ">
+                    <AppSectionRight />
+                </div>
             </div>
-
         </div>
 
-        <!-- section message -->
-        <div class="container rounded px-5 mt-4">
+    </div>
 
-            <div class="row py-md-5 py-2">
+    <!-- section Message and REVIEW -->
+    <div class="container rounded mt-4">
 
-                <!-- inizio dropdown recensione e valutazione-->
-                <p class="d-inline-flex gap-1">
+        <div class="d-flex justify-content-between gap-1">
+            <!-- MESSAGGI -->
+            <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#messages" aria-expanded="false"
+                aria-controls="messages">
+                <span class="text">Manda un messaggio</span>
+                <div class="wave"></div>
+            </button>
+            <!-- RECENSIONI -->
+            <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#review" aria-expanded="false"
+                aria-controls="review">
+                <span class="text">Lascia una recensione</span>
+                <div class="wave"></div>
+            </button>
+        </div>
 
-                    <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#review" aria-expanded="false" aria-controls="review">
-                        <span class="text">Lascia una recensione</span>
-                        <div class="wave"></div>
-                    </button>
-
-                </p>
-                <div class="collapse" id="review">
-                    <div class="card card-body border-0">
-
-                        <!-- componente per recensione e valutazione -->
-                        <AppReviewValutation/>
-
-                    </div>
-                </div>
-                <!-- fine dropdown recensione e valutazione -->
-
-                <!-- inizio dropdown messaggi-->
-                <p class="d-inline-flex gap-1">
-
-                    <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#messages" aria-expanded="false" aria-controls="messages">
-                        <span class="text">Manda un messaggio</span>
-                        <div class="wave"></div>
-                    </button>
-
-                </p>
-                <div class="collapse" id="messages">
-                    <div class="card card-body border-0">
-                    
-                        <!--componente x messaggio -->
+        <div class="row pt-3">
+            <div class="co1-l2">
+                <div class="collapse multi-collapse" id="messages">
+                    <div class="card card-body">
                         <AppSectionMessage />
-                    
                     </div>
                 </div>
-                <!-- inizio dropdown messaggi-->
-                
-               
             </div>
-
+            <div class="col-12 py-3">
+                <div class="collapse multi-collapse" id="review">
+                    <div class="card card-body">
+                        <AppReviewValutation />
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- finish card rew -->
+    </div>
 
-        <!-- carosello recensioni -->
-        <AppCarosel :array="store.Dev.review"/>
-
+    <!-- carosello recensioni -->
+    <div class="w-100">
+        <AppCarosel :array="store.Dev.review" />
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @use'../style/variable.scss' as*;
 
 
-.my_img-up{
+.my_img-up {
     background-image: url(../assets/img_home/prima_onda.png);
     background-size: auto;
 }
-
-
 </style>

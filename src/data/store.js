@@ -5,15 +5,15 @@ export const store = reactive({
 
     BaseApiUrl: "http://127.0.0.1:8000/api/",
     //chiamata api per visualizzare img caricate da utente
-    imgApi:"http://127.0.0.1:8000/storage/",
+    imgApi: "http://127.0.0.1:8000/storage/",
     DevApi: "apiDeveloper",
     DevApiPages: "apiDeveloperPages",
     Languages: "languages",
-    urlMessage:"message", //url per message for post
-    urlReview:"review", //url review for post
-    urlValutation:"valutation",//url valutation for get
-    urlNewValutaion:"postValutation",//url valutation for post
-    ListValutation:[],
+    urlMessage: "message", //url per message for post
+    urlReview: "review", //url review for post
+    urlValutation: "valutation",//url valutation for get
+    urlNewValutaion: "postValutation",//url valutation for post
+    ListValutation: [],
     ListDev: [],
     ListDevPage: [],
     ListLanguages: [],
@@ -32,38 +32,38 @@ export const store = reactive({
     serchStars: 0,
 
     //object for new message
-    newComment:{
-        user_id : "",
-        name:"",
-        surname:"",
-        email:"",
-        text:"",
+    newComment: {
+        user_id: "",
+        name: "",
+        surname: "",
+        email: "",
+        text: "",
     },
 
     //object for review
 
-    newReview:{
-        user_id : "",
-        date : "",
+    newReview: {
+        user_id: "",
+        date: "",
         name: "",
-        email :"",
-        review:""
+        email: "",
+        review: ""
     },
 
     //object for valutation
 
-    newValutation:{
-        user_id:"",
-        valutation_id:"",
+    newValutation: {
+        user_id: "",
+        valutation_id: "",
     },
 
 
-/******************************************* */
-/*****************INIZIO FUNZIONI************* */
-/********************************************** */
+    /******************************************* */
+    /*****************INIZIO FUNZIONI************* */
+    /********************************************** */
 
 
-// Funzione di richiamo 
+    // Funzione di richiamo 
     getDevs() {
         this.Loading = true;
 
@@ -110,7 +110,7 @@ export const store = reactive({
                 .catch(err => {
 
                     this.Loading = false;
-                    this.LoadingError = "Errore nel caricamento " + err.message;                  
+                    this.LoadingError = "Errore nel caricamento " + err.message;
                 })
 
         }
@@ -133,33 +133,31 @@ export const store = reactive({
 
                 this.loading = false;
                 this.LoadingError = "Errore nel caricamento " + err.message;
-                
+
             });
 
     },
- 
+
 
     /*FUNZIONE PER FARE LA MEDIA*/
     average(array) {
         this.Tempo = true;
         let result = 0;
+        let lunghezza = 0; // Inizializza lunghezza a 0
 
-        let lunghezza = array.length;
+        if (array) { // Verifica se l'array è definito
+            lunghezza = array.length; // Ottieni la lunghezza solo se l'array è definito
 
+            array.forEach(element => {
+                result = this.somma(result, element.valutation);
+            });
+        }
 
-        array.forEach(element => {
-
-            result = this.somma(result, element.valutation);
-
-        });
-
-
-        let media = result / lunghezza;
+        let media = lunghezza > 0 ? result / lunghezza : 0; // Calcola la media solo se la lunghezza è maggiore di zero
 
         this.Tempo = false;
 
         return Math.round(media);
-
     },
 
     // FUNZIONE SOMMA
@@ -208,19 +206,19 @@ export const store = reactive({
         const selectedAverage = this.serchAverage; // Stringa con '>10' oppure '10>50' oppure '>50'
         const selectedStars = Number(this.serchStars); // Numero da 1 a 5
         //console.log(selectedStars);
-    
+
         // Filtra gli sviluppatori in base ai criteri
         this.devFiltred = this.ListDev.filter(dev => {
             // console.log(dev.programming_languages.map(lang => lang.language));
             const devLinguaggi = dev.programming_languages.map(lang => lang.language);
-            
+
             // Verifica se almeno uno dei linguaggi selezionati è presente nell'elenco dei linguaggi del developer
             const linguaggioCorrisponde = selectedLanguages.some(linguaggio => devLinguaggi.includes(linguaggio));
             // Verifica se il numero di recensioni dell'utente rientra nell'intervallo selezionato
-            
+
             const numRecensioni = dev.review.length;
             const recensioniMatched = this.checkRecensioni(selectedAverage, numRecensioni);
-            
+
 
 
             // Verifica se la valutazione media dell'utente rientra nell'intervallo selezionato
@@ -231,11 +229,11 @@ export const store = reactive({
             return linguaggioCorrisponde && recensioniMatched && valutazioneMediaMatched;
         });
         //console.log(this.devFiltred);
-        
+
         // Restituisci l'array dei developers filtrati
         return this.devFiltred;
     },
-    
+
     checkRecensioni(selectedRange, numRecensioni) {
         if (selectedRange === '<10') {
             return numRecensioni < 10;
@@ -246,7 +244,7 @@ export const store = reactive({
         }
         return true; // Nessun filtro specificato, restituisci true
     },
-    
+
     checkValutazioneMedia(selectedStars, valutazioneMedia) {
         if (selectedStars >= 1 && selectedStars <= 5) {
             return valutazioneMedia === selectedStars;
@@ -256,84 +254,84 @@ export const store = reactive({
 
     //function for post message
 
-    postMessage(){
+    postMessage() {
 
-        this.newComment.user_id= this.Dev.id;
-         
+        this.newComment.user_id = this.Dev.id;
+
         axios.post(this.BaseApiUrl + this.urlMessage, this.newComment)
-        .then((r) => {
+            .then((r) => {
 
-            //console.log('chiamata effetuata');
-            this.newComment.name = "";
-            this.newComment.surname= "";
-            this.newComment.email = "";
-            this.newComment.text = "";
+                //console.log('chiamata effetuata');
+                this.newComment.name = "";
+                this.newComment.surname = "";
+                this.newComment.email = "";
+                this.newComment.text = "";
 
-            alert('messaggio inviato');
-        } )
-        .catch(err =>{
-            console.log(err.message);
-        })
+                alert('messaggio inviato');
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     },
 
     //function for post review
 
-    postReview(){
+    postReview() {
         this.newReview.user_id = this.Dev.id;
         this.newReview.date = "1992-10-12 00:00:00";
 
         axios.post(this.BaseApiUrl + this.urlReview, this.newReview)
-        .then((r) =>{
+            .then((r) => {
 
-            //console.log('chiamata ok');
-            this.newReview.name= "";
-            this.newReview.email = "";
-            this.newReview.review = "";
+                //console.log('chiamata ok');
+                this.newReview.name = "";
+                this.newReview.email = "";
+                this.newReview.review = "";
 
-            alert('recensione inviata');
-        })
-        .catch(err =>{
-            console.log(err.message);
-        })
+                alert('recensione inviata');
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     },
 
     //function richiamo valutation
-       
+
     getValutation() {
         this.Loading = true;
-    
+
         axios.get(this.BaseApiUrl + this.urlValutation)
-        .then((r) => {
-    
-            this.ListValutation = r.data.results;
-            //console.log(this.ListValutation);
-            this.Loading = false;
-    
-        })
-        .catch(err => {
-    
-            this.Loading = false;
-            this.LoadingError = "Errore nel caricamento" + err.message;
-        })
+            .then((r) => {
+
+                this.ListValutation = r.data.results;
+                //console.log(this.ListValutation);
+                this.Loading = false;
+
+            })
+            .catch(err => {
+
+                this.Loading = false;
+                this.LoadingError = "Errore nel caricamento" + err.message;
+            })
     },
 
     //function post valutation
 
-    postValutation(){
-        
-        this.newValutation.user_id = this.Dev.id;
-            
-        axios.post(this.BaseApiUrl + this.urlNewValutaion , this.newValutation)
-        .then((r) =>{
-            
-            this.newValutation.valutation_id = "";
+    postValutation() {
 
-            alert('valutazione inviata con successo!');
-            // console.log('preso!');
-        })
-        .catch(err =>{
-            console.log(err.message);
-        })
+        this.newValutation.user_id = this.Dev.id;
+
+        axios.post(this.BaseApiUrl + this.urlNewValutaion, this.newValutation)
+            .then((r) => {
+
+                this.newValutation.valutation_id = "";
+
+                alert('valutazione inviata con successo!');
+                // console.log('preso!');
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     }
 
 });

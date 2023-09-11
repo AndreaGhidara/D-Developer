@@ -1,5 +1,4 @@
 <script>
-import { store } from '../data/store'
 
 export default {
     name: 'AppNavbar',
@@ -46,7 +45,7 @@ export default {
     
 <template>
     <nav class="mask text-black">
-        <img class="logo" src="src/assets/img_home/duckLogoGoldpng.png" alt="">
+        <img class="logo" src="/src/assets/duckLogoGoldpng.png" alt="img">
         <router-link to="/home">
             D-Developer
         </router-link>
@@ -74,47 +73,6 @@ export default {
             </router-link>
         </button>
     </nav>
-
-    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-        <div class="containerCustom container-sm d-flex">
-    
-            <a class="navbar-brand" href="#">
-                <img class="logo" src="/d.png" alt="">
-            </a>
-            
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-            
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        
-                        <li class="nav-item">
-                            <router-link :to="{name: navLinkRouter[1].name}" class="nav-link active" aria-current="page">
-                                {{ navLinkRouter[1].label }}
-                            </router-link>
-                        </li>
-                        
-                        <li v-for="item in navLinkPageHome" class="nav-item"><a :href="item.link" class="nav-link">{{ item.label }}</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-            <div class="d-flex justify-content-end">
-                    
-                <router-link class="search-toggle btn bg-transparent" @click="toggleSearch" :to="{name: navLinkRouter[0].name}">
-                <img class="icon" src="src/assets/icon/search.png" alt="">
-                </router-link>
-                
-            </div>
-        </div>
-    </nav> -->
 </template>
 
 <style lang="scss" scoped>

@@ -57,7 +57,6 @@ export default {
             </div>
 
         </form>
-       
 
         <!--valutation index -->
 
@@ -66,7 +65,7 @@ export default {
 
             <select class="form-select" v-model="this.store.newValutation.valutation_id">
                 <option disabled value>Vota</option>
-                <template v-for="item in this.store.ListValutation">
+                <template v-for="item in this.store.ListValutation" :key="item">
                     <option :id="item.id" :value="item.id">{{ item.valutation_name }}</option>
                 </template>
             </select>
