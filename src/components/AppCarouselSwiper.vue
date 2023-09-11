@@ -30,26 +30,23 @@ export default {
 </script>
 
 <template>
-    <div class="my-5 w-100 p-0 m-0">
+    <div class="my-5 w-100 p-0 m-0 carousel">
         <swiper :scrollbar="{
             hide: true,
         }" :modules="modules" :loop="true" class="mySwiper">
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
-                    <img src="public/carousel-slide-1.png" alt="img">
-                    <h1 class="textSlide1 textSlide">Affidati alla nostra rete</h1>
+                    <img src="public/slide-carousel-1.png" alt="img">
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
-                    <img src="public/carousel-slide-2.png" alt="img">
-                    <h1 class="textSlide2 textSlide">Raggiungi i tuoi obbiettivi</h1>
+                    <img src="public/slide-carousel-2.png" alt="img">
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="containerImgCarouselSlide position-relative">
-                    <img src="public/carousel-slide-3.png" alt="img">
-                    <h1 class="textSlide3 textSlide">Comodamente ovunque tu sia</h1>
+                    <img src="public/slide-carousel-3.png" alt="img">
                 </div>
             </swiper-slide>
         </swiper>
@@ -61,6 +58,10 @@ export default {
 
 #app {
     height: 100%;
+}
+
+.carousel{
+    margin-top: 6rem!important;
 }
 
 html,
