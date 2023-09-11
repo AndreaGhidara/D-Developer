@@ -5,8 +5,8 @@ import AppJumbo from '../component_AppSingleDev/AppJumbo.vue';
 import AppSectionLeft from '../component_AppSingleDev/AppSectionLeft.vue';
 import AppSectionRight from '../component_AppSingleDev/AppSectionRight.vue';
 import AppCarosel from '../component_AppSingleDev/AppCarosel.vue';
-import AppReviewValutation from '../component_AppSingleDev/AppReviewValutation.vue';
 import AppSectionMessage from '../component_AppSingleDev/AppSectionMessage.vue';
+import AppReviewValutation from '../component_AppSingleDev/AppReviewValutation.vue';
 
 export default {
     name: "AppSingleDev",
