@@ -21,25 +21,25 @@ export default {
             </h4>
 
             <div class="row text-center">
-                <div class="col-12 py-3">
-                    <img src="/logoBool.png" alt="" class="img-fluid">
+                <div class="col  py-3">
+                    <img src="src/assets/img_home/BooleanLogo.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col-  py-3">
                     <img src="/src/assets/img_home/BDoctors.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col-  py-3">
                     <img src="/src/assets/img_home/BoolB&B5.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col-  py-3">
                     <img src="/src/assets/img_home/BoolB&B6.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col-  py-3">
                     <img src="/src/assets/img_home/BoolMusic.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col- py-3">
                     <img src="/src/assets/img_home/DeliveBoo.png" alt="" class="partners">
                 </div>
-                <div class="col-2 py-3">
+                <div class="col col-  py-3">
                     <img src="/src/assets/img_home/myprofblack.png" alt="" class="partners">
                 </div>
             </div>
