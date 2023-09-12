@@ -23,10 +23,10 @@ export default {
 <template>
     <div class="testoContainer">
         <div class="row gap-5 justify-content-center flex-wrap align-items-center px-2 mx-2">
-            <div class="col-12 col-sm-5 p-2 h-100 coverGlass">
-                <div>
+            <div class="col-12 col-sm-5 p-2 h-100 p-5 coverGlass">
+                <div >
                     <h2 class="fw-bold">
-                        " Trova il Developer Giusto per il Tuo Progetto "
+                        Trova il Developer Giusto per il Tuo Progetto
                     </h2>
                     <p class="fs-4">
                         Sei alla ricerca di un developer con competenze specifiche in vari linguaggi di programmazione?
@@ -38,9 +38,9 @@ export default {
                     </p>
                 </div>
             </div>
-            <div class="col-12 col-sm-5 h-100 coverGlass p-2">
+            <div class="col-12 col-sm-5 h-100 p-5  coverGlass p-2">
                 <h2 class="fw-bold">
-                    " Sviluppatori Talentuosi"
+                    Sviluppatori Talentuosi
                 </h2>
                 <p class="fs-4">
                     La diversità è la chiave per l'innovazione. Su di noi puoi contare per metterti in contatto con una

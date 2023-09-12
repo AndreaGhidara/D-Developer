@@ -16,7 +16,7 @@ export default{
 
         <div class="row">
         
-            <div class="col-md-6 col-9 m-auto rounded-2 text-center text-white my_bg p-md-5 p-3">
+            <div class="col-md-6 col-9 m-auto rounded-2 text-center my_bg p-md-5 p-3">
             
                 <h5 class="mb-3">Vuoi diventare uno dei nostri professionisti?</h5>
             

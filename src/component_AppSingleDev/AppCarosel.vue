@@ -53,9 +53,13 @@ export default {
             <template v-for="(reviews, c) in array" :key="reviews">
                 <swiper-slide>
                     <div>
-                        <h6>{{ reviews.name }}</h6>
+                        <h4>
+                            {{ reviews.name }}
+                        </h4>
                         <small>{{ reviews.email }}</small>
-                        <p class="">{{ reviews.review }}</p>
+                        <p>
+                            <strong class="">{{ reviews.review }}</strong>
+                        </p>
                     </div>
                 </swiper-slide>
             </template>

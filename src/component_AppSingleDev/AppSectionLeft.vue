@@ -9,6 +9,11 @@ export default {
             store,
         }
     },
+    methods: {
+        getImageForLanguage(language) {
+            return `/iconLanguage/${language}.png`; // Utilizza il percorso relativo a `public`
+        },
+    },
     beforeMount() {
         this.store.average(store.Dev.valutations);
     },
@@ -40,12 +45,11 @@ export default {
         <div>
             <h5>Skills</h5><br>
             <div>
-                <div class="col d-flex justify-content-start z-3">
+                <div class="col d-flex justify-content-star flex-wrap z-3">
                     <template v-for="item in store.Dev.programming_languages" :key="item">
 
-                        <p class="skills rouded rounded-pill px-2 fw-semibold me-3">
-                            {{ item.language }}
-                        </p>
+                        <img :src="getImageForLanguage(item.language)" alt="Icona del linguaggio di programmazione"
+                            class="object-fit-cover m-2" width="50" height="50" />
 
                     </template>
                 </div>

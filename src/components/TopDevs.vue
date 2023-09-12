@@ -61,20 +61,22 @@ export default {
               <h5> {{ item.surname }} </h5>
               <div>
                 <div class="d-flex">
-                <template v-for="voto in store.Stars" :key="voto">
+                  <template v-for="voto in store.Stars" :key="voto">
                     <div v-if="this.store.average(item.valutations) >= voto">
-                        <span class="fa fa-star checked text-warning"></span>
+                      <span class="fa fa-star checked text-warning"></span>
                     </div>
                     <div v-else>
-                        <i class="fa-regular fa-star text-warning"></i>
+                      <i class="fa-regular fa-star text-warning"></i>
                     </div>
-                </template>
-            </div>
+                  </template>
+                </div>
               </div>
             </div>
             <button class="button mt-2">
-              <router-link :to="{ name: 'single-dev', params: { id: item.id } }"
-                class="text z-2 text-decoration-none">INFO</router-link>
+              <router-link :to="{ name: 'single-dev', params: { id: item.id } }" class="text z-2 text-decoration-none"
+                @click.prevent>
+                INFO
+              </router-link>
               <div class="wave"></div>
             </button>
           </div>
@@ -89,13 +91,13 @@ export default {
               <img v-if="item.img_path" src="{{ item.img_path }}" class="image" alt="{{item.name}}">
               <img v-else src="https://picsum.photos/300/300?random" class="image" alt="{{item.name}}">
             </div>
-            <p class="name-client">  {{ item.name }} 
+            <p class="name-client"> {{ item.name }}
               <span>{{ item.surname }}
               </span>
             </p>
             <div>
               <div class="d-flex">
-            </div>
+              </div>
             </div>
             <button class="button mx-auto my-1 p-1">
               <router-link :to="{ name: 'single-dev', params: { id: item.id } }"
