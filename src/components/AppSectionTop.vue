@@ -57,10 +57,4 @@ export default {
     background-position: 100% 80%;
 }
 
-@media screen and (max-width: 600px) {
-    
-    .sectionBanner{
-        margin-top: 26rem!important;
-    }
-}
 </style>

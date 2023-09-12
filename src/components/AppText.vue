@@ -1,13 +1,14 @@
 <script>
+import { store } from '../data/store';
+
 
 export default {
-    name: "AppDevList",
+    name: "AppText",
     components: {
-        
     },
     data() {
         return {
-            
+            store,
         }
     },
     methods: {
@@ -20,7 +21,6 @@ export default {
 </script>
 
 <template>
-
     <div class="testoContainer">
         <div class="row gap-5 justify-content-center flex-wrap align-items-center px-2 mx-2">
             <div class="col-12 col-sm-5 p-2 h-100 coverGlass">
@@ -51,11 +51,9 @@ export default {
             </div>
         </div>
     </div>
-
 </template>
 
 <style lang="scss" scoped>
-
 @use'../style/variable.scss' as*;
 
 .testoContainer {
