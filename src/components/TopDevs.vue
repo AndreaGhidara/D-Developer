@@ -127,7 +127,7 @@ export default {
   text-align: center;
   // gap: 10px;
   background: linear-gradient(40deg, rgba(246, 108, 104, 1) 0%, rgba(255, 129, 108, 1) 50%, rgba(252, 176, 69, 1) 100%);
-  border-radius: 50%;
+  border-radius: 10%;
   position: relative;
   overflow: hidden;
 }

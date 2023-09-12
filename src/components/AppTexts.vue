@@ -1,25 +1,26 @@
 <script>
 
 export default {
-    name: "AppTexts",
+    name: "AppDevList",
     components: {
-
+        
     },
     data() {
         return {
-
+            
         }
     },
     methods: {
 
     },
     mounted() {
-
+        store.getDevs();
     },
 }
 </script>
 
 <template>
+
     <div class="testoContainer">
         <div class="row gap-5 justify-content-center flex-wrap align-items-center px-2 mx-2">
             <div class="col-12 col-sm-5 p-2 h-100 coverGlass">
@@ -30,7 +31,9 @@ export default {
                     <p class="fs-4">
                         Sei alla ricerca di un developer con competenze specifiche in vari linguaggi di programmazione?
                         Siamo qui per aiutarti! Il nostro servizio ti consente di connetterti con sviluppatori esperti in
-                        una vasta gamma di linguaggi, dal <span class="text-warning">JavaScript</span> al  <span class="text-primary">Python</span>, passando per il <span class="text-danger">Java</span> e molti altri. Trova il
+                        una vasta gamma di linguaggi, dal <span class="text-warning">JavaScript</span> al <span
+                            class="text-primary">Python</span>, passando per il <span class="text-danger">Java</span> e
+                        molti altri. Trova il
                         partner perfetto per il tuo progetto oggi stesso.
                     </p>
                 </div>
@@ -48,12 +51,16 @@ export default {
             </div>
         </div>
     </div>
+
 </template>
 
 <style lang="scss" scoped>
+
 @use'../style/variable.scss' as*;
 
 .testoContainer {
     width: 100%;
-    height: 30rem;
-}</style>
+
+}
+</style>
+
