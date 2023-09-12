@@ -33,7 +33,7 @@ export default {
         <b class="text-white ">
             <div>
 
-                <img v-if="user.img_path" :src="this.store.imgApi + user.img_path" alt="">
+                <img class="img-fluid object-fit-cover" v-if="user.img_path" :src="this.store.imgApi + user.img_path" alt="">
                 <img v-else class="img-fluid object-fit-cover" src="https://picsum.photos/300/300?random" alt="">
 
 
