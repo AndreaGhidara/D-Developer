@@ -51,7 +51,6 @@ export default {
         <!-- nuova card index -->
         <div class="col-lg-3 col-sm-6 col-12 p-3 d-none d-sm-block">
 
-
           <div class="card mx-auto">
 
             <img v-if="item.img_path" src="{{ item.img_path }}" class="image" alt="{{item.name}}">
@@ -60,6 +59,18 @@ export default {
             <div class="card-info">
               <h4> {{ item.name }} </h4>
               <h5> {{ item.surname }} </h5>
+              <div>
+                <div class="d-flex">
+                <template v-for="voto in store.Stars" :key="voto">
+                    <div v-if="this.store.average(item.valutations) >= voto">
+                        <span class="fa fa-star checked text-warning"></span>
+                    </div>
+                    <div v-else>
+                        <i class="fa-regular fa-star text-warning"></i>
+                    </div>
+                </template>
+            </div>
+              </div>
             </div>
             <button class="button mt-2">
               <router-link :to="{ name: 'single-dev', params: { id: item.id } }"
@@ -82,6 +93,10 @@ export default {
               <span>{{ item.surname }}
               </span>
             </p>
+            <div>
+              <div class="d-flex">
+            </div>
+            </div>
             <button class="button mx-auto my-1 p-1">
               <router-link :to="{ name: 'single-dev', params: { id: item.id } }"
                 class="text z-2 text-decoration-none">INFO</router-link>

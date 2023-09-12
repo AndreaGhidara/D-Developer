@@ -8,6 +8,9 @@ import SectionTwoCard from '../components/SectionTwoCard.vue';
 import Register from '../components/Register.vue';
 import AppPartners from '../components/AppPartners.vue';
 import AppCarouselSwiper from '../components/AppCarouselSwiper.vue';
+import AppTexts from '../components/AppTexts.Vue';
+
+
 export default {
     components: {
     TopDevs,
@@ -18,6 +21,8 @@ export default {
     Register,
     AppPartners,
     AppCarouselSwiper,
+    AppTexts,
+
 },
     data() {
         return {
@@ -42,9 +47,11 @@ export default {
         <div class="d-none d-md-block">
             <AppCarouselSwiper />
         </div>
-        <div class="d-md-none">
+        <div class="d-md-none mt-5">
             <Carousels/>
         </div>
+
+        <AppTexts />
             
         <!-- section top -->
             

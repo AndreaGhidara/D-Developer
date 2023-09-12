@@ -12,7 +12,7 @@ export default{
 </script>
 
 <template>
-    <div class="container pt-4 bg_circle mt-3">
+    <div class="container py-5 bg_circle mt-3">
 
         <div class="row">
         

@@ -1,10 +1,10 @@
 <script>
 
-export default{
-    name:"AppPartners",
-    data(){
-        return{
-            
+export default {
+    name: "AppPartners",
+    data() {
+        return {
+
         }
     },
 }
@@ -12,14 +12,14 @@ export default{
 </script>
 
 <template>
-<div class="container py-4 bg_circle mb-3">
+    <div class="w-100 bg_circle ">
 
-    <div class="row">
-        
-        <div class="col-md-10 col-12 m-auto text-center bg_orangeOpa p-5">
-            
-            <h4>Hanno collaborato con noi</h4>
-            
+        <div class="row text-center bg_orangeOpa rounded-2 p-5">
+
+            <h4 class="text-white">
+                Hanno collaborato con noi
+            </h4>
+
             <div class="row text-center">
                 <div class="col-12 py-3">
                     <img src="/logoBool.png" alt="" class="img-fluid">
@@ -45,17 +45,15 @@ export default{
             </div>
         </div>
     </div>
-</div>
-
 </template>
 
 <style lang="scss" scoped>
-
 @use'../style/variable.scss' as*;
 
-.bg_orangeOpa{
+.bg_orangeOpa {
     background-color: $my_new_color_3;
 }
+
 .bg_circle {
     background-image: url(../assets/img_home/cerchioAzz.png);
     background-repeat: no-repeat;
