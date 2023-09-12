@@ -252,6 +252,10 @@ export const store = reactive({
         return true; // Nessun filtro specificato o filtro non valido, restituisci true
     },
 
+    showPopupMessages: false,
+    showPopupReviews: false,
+    showPopupValutations: false,
+
     //function for post message
 
     postMessage() {
@@ -261,13 +265,15 @@ export const store = reactive({
         axios.post(this.BaseApiUrl + this.urlMessage, this.newComment)
             .then((r) => {
 
+                this.openPopupMessages();
+
                 //console.log('chiamata effetuata');
                 this.newComment.name = "";
                 this.newComment.surname = "";
                 this.newComment.email = "";
                 this.newComment.text = "";
 
-                alert('messaggio inviato');
+                // alert('messaggio inviato');
             })
             .catch(err => {
                 console.log(err.message);
@@ -283,12 +289,14 @@ export const store = reactive({
         axios.post(this.BaseApiUrl + this.urlReview, this.newReview)
             .then((r) => {
 
+                this.openPopupReviews();
+
                 //console.log('chiamata ok');
                 this.newReview.name = "";
                 this.newReview.email = "";
                 this.newReview.review = "";
 
-                alert('recensione inviata');
+                // alert('recensione inviata');
             })
             .catch(err => {
                 console.log(err.message);
@@ -303,10 +311,11 @@ export const store = reactive({
         axios.get(this.BaseApiUrl + this.urlValutation)
             .then((r) => {
 
+                
                 this.ListValutation = r.data.results;
                 //console.log(this.ListValutation);
                 this.Loading = false;
-
+                
             })
             .catch(err => {
 
@@ -314,24 +323,55 @@ export const store = reactive({
                 this.LoadingError = "Errore nel caricamento" + err.message;
             })
     },
-
+    
     //function post valutation
-
+    
     postValutation() {
 
         this.newValutation.user_id = this.Dev.id;
-
+        
         axios.post(this.BaseApiUrl + this.urlNewValutaion, this.newValutation)
-            .then((r) => {
+        .then((r) => {
 
+                this.openPopupValutations();
+            
                 this.newValutation.valutation_id = "";
 
-                alert('valutazione inviata con successo!');
+                // alert('valutazione inviata con successo!');
                 // console.log('preso!');
             })
             .catch(err => {
                 console.log(err.message);
             })
-    }
+    },
 
+    
+
+    openPopupMessages() {
+        this.showPopupMessages = true;
+        setTimeout(() => {
+            this.showPopupMessages = false;
+        },4000)
+    },
+    openPopupReviews() {
+        this.showPopupReviews = true;
+        setTimeout(() => {
+            this.showPopupReviews = false;
+        },4000)
+    },
+    openPopupValutations() {
+        this.showPopupValutations = true;
+        setTimeout(() => {
+            this.showPopupValutations = false;
+        },4000)
+    },
+    closePopupMessages() {
+        this.showPopupMessages = false;
+    },
+    closePopupReviews() {
+        this.showPopupReviews = false;
+    },
+    closePopupValutations() {
+        this.showPopupValutations = false;
+    },
 });
