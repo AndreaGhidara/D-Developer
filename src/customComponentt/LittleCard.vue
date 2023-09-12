@@ -109,8 +109,8 @@ p {
 
 h4 {
     color: $my_new_color_1;
+    font-size: 18px;
 }
-
 .card span {
     width: 100px;
     height: 100px;
@@ -162,7 +162,7 @@ b {
 }
 
 .languages {
-    width: 200px;
+    width: 180px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -183,7 +183,7 @@ b {
 .card {
     position: relative;
     width: 190px;
-    height: 254px;
+    height: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -266,6 +266,7 @@ b {
     align-items: center;
     transition: 0.5s;
     border-radius: 50px;
+  
 }
 
 .card:hover .content {
