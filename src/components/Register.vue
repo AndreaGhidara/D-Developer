@@ -22,7 +22,7 @@ export default{
             
                 <div>
                     <button class="button m-auto">
-                    <a href="http://127.0.0.1:8000/register" class="text">
+                    <a href="http://127.0.0.1:8000/register" class="text text-decoration-none">
                         REGISTRATI
                     </a>
                         <div class="wave"></div>
