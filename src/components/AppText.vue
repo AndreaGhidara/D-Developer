@@ -25,10 +25,10 @@ export default {
         <div class="row gap-5 justify-content-center flex-wrap align-items-center px-2 mx-2">
             <div class="col-12 col-sm-5 p-2 h-100 p-5 coverGlass">
                 <div >
-                    <h2 class="fw-bold">
+                    <h4 class="fw-bold">
                         Trova il Developer Giusto per il Tuo Progetto
-                    </h2>
-                    <p class="fs-4">
+                    </h4>
+                    <p >
                         Sei alla ricerca di un developer con competenze specifiche in vari linguaggi di programmazione?
                         Siamo qui per aiutarti! Il nostro servizio ti consente di connetterti con sviluppatori esperti in
                         una vasta gamma di linguaggi, dal <span class="text-warning">JavaScript</span> al <span
@@ -39,10 +39,10 @@ export default {
                 </div>
             </div>
             <div class="col-12 col-sm-5 h-100 p-5  coverGlass p-2">
-                <h2 class="fw-bold">
+                <h4 class="fw-bold">
                     Sviluppatori Talentuosi
-                </h2>
-                <p class="fs-4">
+                </h4>
+                <p>
                     La diversità è la chiave per l'innovazione. Su di noi puoi contare per metterti in contatto con una
                     comunità globale di sviluppatori provenienti da ogni angolo del mondo e con competenze linguistiche e
                     culturali diverse. Scegli tra un team di sviluppatori talentuosi e multilingue per portare il tuo
